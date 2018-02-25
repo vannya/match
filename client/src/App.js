@@ -10,7 +10,7 @@ class App extends Component {
   state = {
     modalShowing: false
   };
-  
+
   componentDidMount() {
     this.props.fetchUser(); // Fetches to determine auth status
     this.props.fetchMemes(); // Fetches list of memes for current user
@@ -26,7 +26,7 @@ class App extends Component {
         return (
           <div className="filter-bar">
             <a href="/api/googleLogin">SignIn</a>
-            <button onClick={() => this.props.loginDemo()}>TestUser</button>
+            <button onClick={() => this.loginTestUser()}>TestUser</button>
             <a href="/api/googleLogin">Login</a>
           </div>
         );
@@ -39,6 +39,11 @@ class App extends Component {
           </div>
         );
     }
+  }
+
+  async loginTestUser(){
+    await this.props.loginDemo();
+    await this.props.fetchMemes();
   }
 
   // Renders list of images.

@@ -45,22 +45,37 @@ class App extends Component {
     if (!!this.props.memes) {
       return this.props.memes.map((meme, i) => {
         if (this.isImage(meme.link)) {
-          return <MemeDisplay key={i} imgSrc={meme.link} link={meme.link} />;
+          return (
+            <MemeDisplay
+              key={i}
+              imgSrc={meme.link}
+              link={meme.link}
+              linkId={meme._id}
+              deleteImage={this.deleteImage}
+            />
+          );
         } else {
-          return <MemeDisplay key={i} imgSrc={placeholder} link={meme.link} />;
+          return (
+            <MemeDisplay
+              key={i}
+              imgSrc={placeholder}
+              link={meme.link}
+              linkId={meme._id}
+              deleteImage={this.deleteImage}
+            />
+          );
         }
       });
     }
     //  TODO: Add a view for if there are no images present.
   }
 
-  isImage(link){
-    const linkArr =  link.split(".");
+  isImage(link) {
+    const linkArr = link.split(".");
     const linkEnding = linkArr[linkArr.length - 1];
-    if ( linkEnding === "jpg" || linkEnding === "jpeg" || linkEnding === "png") {
+    if (linkEnding === "jpg" || linkEnding === "jpeg" || linkEnding === "png") {
       return true;
     } else {
-      console.log("here")
       return false;
     }
   }
@@ -71,6 +86,11 @@ class App extends Component {
       modalShowing: !this.state.modalShowing
     });
   }
+
+  deleteImage = imageId => {
+    this.props.deleteMeme(imageId);
+    this.props.fetchMemes();
+  };
 
   render() {
     return (

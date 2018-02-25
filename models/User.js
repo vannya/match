@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 //Creates a new user model
-const userSchema = new Schema ({
+const userSchema = new Schema({
   googleId: String
 });
 

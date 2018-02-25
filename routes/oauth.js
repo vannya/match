@@ -36,10 +36,9 @@ module.exports = app => {
   // Test User Login for Match demonstration purposes
   app.post(
     "/api/testUser",
-      passport.authenticate("local", {
-        successRedirect: "/", // redirect to the secure profile section
-        failureRedirect: "/" // redirect back to the signup page if there is an error
-      })
+    passport.authenticate("local", {
+      successRedirect: "/", // redirect to the secure profile section
+      failureRedirect: "/" // redirect back to the signup page if there is an error
+    })
   );
-  
 };

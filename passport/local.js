@@ -14,7 +14,7 @@ passport.deserializeUser((id, done) => {
   });
 });
 
-// Strategy to log in the test demo only. 
+// Strategy to log in the test demo only.
 passport.use(
   new LocalStrategy(async (username, password, done) => {
     const existingUser = await User.findOne({

@@ -27,14 +27,4 @@
 
 .meme-display-btn {
   width: 80px;
-  border-radius: 4px;
-  border: none;
-  padding: 0.4em 0;
-  outline: none;
-  cursor: pointer;
-}
-
-.red {
-  background-color: rgb(255, 26, 45);
-  color: white;
 }

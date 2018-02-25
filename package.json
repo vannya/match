@@ -4,12 +4,15 @@
   "description": "Match.com's Component Challenge",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon index.js",
+    "client": "npm run start --prefix client",
+    "server": "nodemon index.js",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
     "start": "node index.js"
   },
   "author": "Van Tabbert",
   "license": "MIT",
   "dependencies": {
+    "concurrently": "^3.5.1",
     "cookie-session": "^2.0.0-beta.3",
     "express": "^4.16.2",
     "mongoose": "^5.0.7",

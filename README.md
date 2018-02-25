@@ -4,9 +4,9 @@
 
 
 
-
 # To run on dev: 
 
+**First time setup**
 Open your command terminal and navigate to the folder you want to install in.  
 Type ```git clone https://github.com/vannya/match.git```.  
 After the clone folder is saved into your system, run the following codes:  
@@ -14,12 +14,25 @@ After the clone folder is saved into your system, run the following codes:
 ```cd match```  
 ```npm install```
 
-This should take a moment to load. Next, follow the instructions for creating a keys.js file.  
-Once that file is complete and saved, run the following command to start the dev server:
+This should take a moment to load. Next, follow the instructions for creating a `keys.js` file.  
+Once that file is complete and saved, run the following commands to install the client packages:
+
+```cd client```    
+```npm install```  
+
+Once the packages are installed, run the following commands to start the dev server and client:  
+
+```cd ..```  
+```npm run dev```  
+
+Now you should be good to go!  
+
+**Subsequent dev runs**  
+From the main folder, type the following code to run both server and client:
 
 ```npm run dev```
 
-Now you should be good to go!
+Now you should be good to go!  
 
 
 ## Create a keys.js file  

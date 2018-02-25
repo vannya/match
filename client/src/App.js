@@ -10,7 +10,7 @@ class App extends Component {
   state = {
     modalShowing: false
   };
-
+  
   componentDidMount() {
     this.props.fetchUser(); // Fetches to determine auth status
     this.props.fetchMemes(); // Fetches list of memes for current user
@@ -41,6 +41,7 @@ class App extends Component {
     }
   }
 
+  // Renders list of images.
   renderImages() {
     if (!!this.props.memes) {
       return this.props.memes.map((meme, i) => {
@@ -70,6 +71,8 @@ class App extends Component {
     //  TODO: Add a view for if there are no images present.
   }
 
+  // Verifies that link is an image, else will render a placeholder image.
+  // TODO: Create better placeholder image.
   isImage(link) {
     const linkArr = link.split(".");
     const linkEnding = linkArr[linkArr.length - 1];
@@ -87,6 +90,7 @@ class App extends Component {
     });
   }
 
+  // Deletes an Image
   deleteImage = imageId => {
     this.props.deleteMeme(imageId);
     this.props.fetchMemes();

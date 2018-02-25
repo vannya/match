@@ -17,9 +17,9 @@ module.exports = app => {
   app.get(
     "/api/googlelogin/redirect",
     passport.authenticate("google"),
-    // (req, res) => {
-    //   res.redirect("/auth");
-    // }
+    (req, res) => {
+      res.redirect("/");
+    }
   );
 
   // Gets Current User Info
@@ -28,8 +28,18 @@ module.exports = app => {
   });
 
   // Logout Handler
-  app.get("/api/logout", (req, res) =>  {
+  app.get("/api/logout", (req, res) => {
     req.logout();
-    res.send(req.user);
-  })
+    res.redirect("/");
+  });
+
+  // Test User Login for Match demonstration purposes
+  app.post(
+    "/api/testUser",
+      passport.authenticate("local", {
+        successRedirect: "/", // redirect to the secure profile section
+        failureRedirect: "/" // redirect back to the signup page if there is an error
+      })
+  );
+  
 };

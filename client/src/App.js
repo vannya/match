@@ -30,6 +30,7 @@ class App extends Component {
     return (
       <div className="App">
         {this.renderFilterBar()}
+        <button onClick={() => this.props.addMeme({link: "www.google.com"})}>Add Images</button>
       </div>
     );
   }

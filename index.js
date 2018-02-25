@@ -5,8 +5,9 @@ const passport = require("passport");
 const bodyParser = require("body-parser");
 const keys = require("./keys.js");
 require("./models/User");
+require("./models/Meme");
 require("./passport/local");
-require("./passport/passport");
+require("./passport/google");
 
 mongoose.connect(keys.mongoURI);
 
@@ -24,6 +25,7 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
+require("./routes/memes")(app);
 require("./routes/oauth")(app);
 
 app.listen(5000);

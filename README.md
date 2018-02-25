@@ -7,9 +7,9 @@
 
 # To run on dev: 
 
-Open your command terminal and navigate to the folder you want to install in.
-Type ```git clone https://github.com/vannya/match.git```.
-After the clone folder is saved into your system, run the following codes:
+Open your command terminal and navigate to the folder you want to install in.  
+Type ```git clone https://github.com/vannya/match.git```.  
+After the clone folder is saved into your system, run the following codes:  
 
 ```cd match```
 ```npm install```
@@ -25,12 +25,14 @@ Now you should be good to go!
 ## Create a keys.js file
 Create a file called keys.js (in the main folder).
 
-```module.exports = {  
+```
+module.exports = {  
   googleClientId: "#############",  
   googleSecretId: "#############",  
   mongoURI: "##############"  ,
   cookieKey: "#############"
-}```
+}
+```
 
 ### Get credentials through Google. 
 Go to [console.developers.google.com](https://console.developers.google.com/apis?project=match-three-components)
@@ -43,8 +45,8 @@ Enable API.
 Click credentials on the left.  Choose Oauth client ID.
 Set up consent screen and click save.
 Choose web app. Name can remain web client 1.
-JS origin: http://localhost:5000/api/googlelogin
-Redirects: http://localhost:5000/api/googlelogin/redirect and http://localhost:3000/api/googlelogin
+JS origin: `http://localhost:5000/api/googlelogin`
+Redirects: `http://localhost:5000/api/googlelogin/redirect` and `http://localhost:3000/api/googlelogin`
 Now you have client id and secret. Paste these into keys.js as googleClientId and googleSecretId, respectively.
 
 ### Get MongoURI
@@ -68,10 +70,10 @@ Click create.
 
 **Set up URI**
 The URI code is listed on the page under "To connect using a driver via the standard MongoDB URI".
-It should start with ```mongodb://<dbuser>:<dbpassword>```
+It should start with `mongodb://<dbuser>:<dbpassword>`
 Copy that entire link and paste into keys.js as the mongoURI. 
-Replace ```<dbuser>``` and ```<dbpassword>``` with the information you used when creating the database user in the previous steps.
-Now it should look like ```mongodb://username:thisismypassword```.
+Replace `<dbuser>` and `<dbpassword>` with the information you used when creating the database user in the previous steps.
+Now it should look like `mongodb://username:thisismypassword`.
 
 **Set up Cookie Key**
 The cookie key can be any series of letters such as asdkfasdjabluasbfas or ekjnsfaioasdasdfbjnye.

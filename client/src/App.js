@@ -9,12 +9,18 @@ class App extends Component {
     this.props.fetchUser();
   }
 
-  renderBar(){
+  renderFilterBar(){
     switch(this.props.oauth){
       case null:
         return;
       case false: 
-        return (<a href="/api/googleLogin">Login</a>);
+        return (
+          <div className="filter-bar">
+            <a href="/api/googleLogin">SignIn</a>
+            <button onClick={() => this.props.loginDemo()}>TestUser</button>
+            <a href="/api/googleLogin">Login</a>
+          </div>
+        );
       default: 
         return (<a href="/api/logout">Logout</a>);
     }
@@ -23,7 +29,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {this.renderBar()}
+        {this.renderFilterBar()}
       </div>
     );
   }

@@ -6,3 +6,14 @@ export const fetchUser = () => async dispatch => {
 
     dispatch({ type: FETCH_USER, payload: res.data });
 };
+
+export const loginDemo = () => async dispatch => {
+    const user = {
+        username: "testUser",
+        password: "xxxx"
+    };
+    
+    const res = await axios.post("/api/testUser", user);
+
+    dispatch({ type: FETCH_USER, payload: res.data});
+}

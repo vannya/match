@@ -58,8 +58,8 @@ Enable API.
 Click credentials on the left.  Choose Oauth client ID.  
 Set up consent screen and click save.  
 Choose web app. Name can remain web client 1.  
-JS origin: `http://localhost:5000/api/googlelogin`  
-Redirects: `http://localhost:5000/api/googlelogin/redirect` and `http://localhost:3000/api/googlelogin`  
+JS origin: `http://localhost:5000`  
+Redirects: `http://localhost:5000/api/googlelogin/redirect` and `http://localhost:3000/api/googlelogin/redirect`  
 Now you have client id and secret. Paste these into keys.js as googleClientId and googleSecretId, respectively.  
 
 ### Get MongoURI  

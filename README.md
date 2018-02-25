@@ -40,43 +40,43 @@ Create new project and give project a name.
 Open project.
 
 **Enable API.**
-Search for Google+ API.
-Enable API.
-Click credentials on the left.  Choose Oauth client ID.
-Set up consent screen and click save.
-Choose web app. Name can remain web client 1.
-JS origin: `http://localhost:5000/api/googlelogin`
-Redirects: `http://localhost:5000/api/googlelogin/redirect` and `http://localhost:3000/api/googlelogin`
-Now you have client id and secret. Paste these into keys.js as googleClientId and googleSecretId, respectively.
+Search for Google+ API.  
+Enable API.  
+Click credentials on the left.  Choose Oauth client ID.  
+Set up consent screen and click save.  
+Choose web app. Name can remain web client 1.  
+JS origin: `http://localhost:5000/api/googlelogin`  
+Redirects: `http://localhost:5000/api/googlelogin/redirect` and `http://localhost:3000/api/googlelogin`  
+Now you have client id and secret. Paste these into keys.js as googleClientId and googleSecretId, respectively.  
 
 ### Get MongoURI
-Navigate to mLab.com and login/signup.  
-Sandboxes are free here.
+Navigate to mLab.com and login/signup.    
+Sandboxes are free here.  
 
 **Create new database.**
-Click create new database on the dashboard.
-Choose Sandbox AWS. Click Continue.
-Choose US Region. Click Continue.
-Name: appname  Click Continue and submit order (your total should say "Free").
+Click create new database on the dashboard.  
+Choose Sandbox AWS. Click Continue.  
+Choose US Region. Click Continue.  
+Name: appname  Click Continue and submit order (your total should say "Free").  
 
 **Add new DB user.**
-After a few seconds, your db should be ready.
-Click the database name in the list.
-Click Users in the database.  It's on the tab halfway down the page.
-Click Add database user.
-Add a database username and password.
-Make sure that "Make read-only" isn't clicked.
-Click create.
+After a few seconds, your db should be ready.  
+Click the database name in the list.  
+Click Users in the database.  It's on the tab halfway down the page.  
+Click Add database user.  
+Add a database username and password.  
+Make sure that "Make read-only" isn't clicked.  
+Click create.  
 
 **Set up URI**
-The URI code is listed on the page under "To connect using a driver via the standard MongoDB URI".
-It should start with `mongodb://<dbuser>:<dbpassword>`
-Copy that entire link and paste into keys.js as the mongoURI. 
-Replace `<dbuser>` and `<dbpassword>` with the information you used when creating the database user in the previous steps.
-Now it should look like `mongodb://username:thisismypassword`.
+The URI code is listed on the page under "To connect using a driver via the standard MongoDB URI".  
+It should start with `mongodb://<dbuser>:<dbpassword>`  
+Copy that entire link and paste into keys.js as the mongoURI.   
+Replace `<dbuser>` and `<dbpassword>` with the information you used when creating the database user in the previous steps.  
+Now it should look like `mongodb://username:thisismypassword`.  
 
 **Set up Cookie Key**
-The cookie key can be any series of letters such as asdkfasdjabluasbfas or ekjnsfaioasdasdfbjnye.
-Any random letters will do.
+The cookie key can be any series of letters such as asdkfasdjabluasbfas or ekjnsfaioasdasdfbjnye.  
+Any random letters will do.  
 
-Save keys.js and you are on your way!
+Save keys.js and you are on your way!  

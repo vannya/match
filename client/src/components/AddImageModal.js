@@ -14,9 +14,10 @@ class AddImageModal extends Component {
 
   handleOnSubmit = (e) => {
     e.preventDefault();
-    
-    this.props.addMeme({link: this.state.link});
-    this.props.toggleModal();
+    if(!!this.state.link) {
+      this.props.addMeme({link: this.state.link});
+      this.props.toggleModal();
+    }
   }
 
   render() {
@@ -25,7 +26,7 @@ class AddImageModal extends Component {
         <div className="overlay" onClick={this.props.toggleModal}></div>
         <div className="add-image-modal"> 
           <form onSubmit={this.handleOnSubmit}>
-            <input type="url" name="link" placeholder="Test Input" onChange={this.handleOnChange} />
+            <input type="url" name="link" placeholder="Link to Image" onChange={this.handleOnChange} />
             <button type="submit">Submit</button>
           </form>
         </div>

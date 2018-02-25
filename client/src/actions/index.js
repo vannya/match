@@ -1,12 +1,14 @@
 import axios from "axios";
 import { FETCH_USER, FETCH_MEMES } from "./types";
 
+// Fetches Current User
 export const fetchUser = () => async dispatch => {
   const res = await axios.get("/api/currentUser");
 
   dispatch({ type: FETCH_USER, payload: res.data });
 };
 
+// Logs in a demo User
 export const loginDemo = () => async dispatch => {
   const user = {
     username: "testUser",
@@ -18,14 +20,23 @@ export const loginDemo = () => async dispatch => {
   dispatch({ type: FETCH_USER, payload: res.data });
 };
 
-export const addMeme = (link) => async dispatch => {
-    const res = await axios.post("/api/newMeme", link);
+// Adds Image
+export const addMeme = link => async dispatch => {
+  const res = await axios.post("/api/newMeme", link);
 
-    dispatch({ type: FETCH_USER, payload: res.data});
-}
+  dispatch({ type: FETCH_USER, payload: res.data });
+};
 
+// Deletes Image
+export const deleteMeme = imageId => async dispatch => {
+  const res = await axios.delete(`/api/memes/del/${imageId}`, imageId);
+
+  dispatch({ type: FETCH_USER, payload: res.data });
+};
+
+// Fetches all Images
 export const fetchMemes = () => async dispatch => {
-    const res = await axios.get("/api/memes");
+  const res = await axios.get("/api/memes");
 
-    dispatch({ type: FETCH_MEMES, payload: res.data});
-}
+  dispatch({ type: FETCH_MEMES, payload: res.data });
+};

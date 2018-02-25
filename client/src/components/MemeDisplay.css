@@ -1,0 +1,30 @@
+.meme-display {
+  padding: 0.7em;
+  margin: 1em;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(240, 240, 240);
+  border: 1px solid rgb(187, 187, 187);
+  border-radius: 4px;
+}
+
+.meme-display > a > img {
+  height: 200px;
+  width: 200px;
+}
+
+.meme-display > input {
+  margin: 0.75em 0;
+  line-height: 20px;
+  font-size: 16px;
+}
+
+.meme-display > .btn-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.meme-display-btn {
+  width: 80px;
+}

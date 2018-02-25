@@ -1,4 +1,4 @@
-import {combineReducers} from "redux";
+import { combineReducers } from "redux";
 import oauthReducer from "./oauthReducer";
 import memeReducer from "./memeReducer";
 

@@ -16,6 +16,7 @@ class AddImageModal extends Component {
     e.preventDefault();
     if(!!this.state.link) {
       this.props.addMeme({link: this.state.link});
+      this.props.fetchMemes(); 
       this.props.toggleModal();
     }
   }

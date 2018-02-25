@@ -4,7 +4,12 @@ import "./MemeDisplay.css";
 const MemeDisplay = ({imgSrc, link}) => {
   return (
     <div className="meme-display">
-      <img src={imgSrc} alt="" height="100px" width="100px" style={{backgroundColor: "red"}}/>
+      <a href={link}><img src={imgSrc} alt={link} /></a>
+      <input type="text" value={link} />
+      <div className="btn-box">
+        <button className="meme-display-btn red">Delete</button>
+        <button className="meme-display-btn">Copy</button>
+      </div>
     </div>
   );
 }

@@ -20,6 +20,6 @@ module.exports = app => {
       link: req.body.link,
       _user: req.user.id
     }).save();
-    return res.send(req.user);
+    res.send(req.user);
   });
 }

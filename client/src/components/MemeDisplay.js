@@ -1,10 +1,10 @@
 import React from 'react';
+import "./MemeDisplay.css";
 
-const MemeDisplay = ({link}) => {
-  console.log(link)
+const MemeDisplay = ({imgSrc, link}) => {
   return (
     <div className="meme-display">
-      <img src={link} alt="" height="100px" width="100px"/>
+      <img src={imgSrc} alt="" height="100px" width="100px" style={{backgroundColor: "red"}}/>
     </div>
   );
 }

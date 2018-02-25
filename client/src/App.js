@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import * as actions from "./actions";
 import AddImageModal from "./components/AddImageModal";
 import MemeDisplay from "./components/MemeDisplay";
+import placeholder from "./placeholder.jpg";
 import "./App.css";
 
 class App extends Component {
@@ -12,7 +13,6 @@ class App extends Component {
 
   componentDidMount() {
     this.props.fetchUser(); // Fetches to determine auth status
-    this.props.fetchMemes(); // Fetches list of memes for current user
   }
 
   // Shows a Filter Bar
@@ -41,8 +41,26 @@ class App extends Component {
   }
 
   renderImages() {
+    this.props.fetchMemes(); // Fetches list of memes for current user
     if (!!this.props.memes) {
-      return this.props.memes.map((meme, i) => <MemeDisplay key={i} link={meme.link} />);
+      return this.props.memes.map((meme, i) => {
+        if (this.isImage(meme.link)) {
+          return <MemeDisplay key={i} imgSrc={meme.link} link={meme.link} />;
+        } else {
+          return <MemeDisplay key={i} imgSrc={placeholder} link={meme.link} />
+        }
+      });
+    }
+  }
+
+  isImage(link){
+    const linkArr =  link.split(".");
+    const linkEnding = linkArr[linkArr.length - 1];
+    if ( linkEnding === "jpg" || linkEnding === "jpeg" || linkEnding === "png") {
+      return true;
+    } else {
+      console.log(linkEnding);
+      return false;
     }
   }
 
@@ -57,7 +75,7 @@ class App extends Component {
     return (
       <div className="App">
         {this.renderFilterBar()}
-        {this.renderImages()}
+        <div className="app-body">{this.renderImages()}</div>
         {!!this.state.modalShowing ? (
           <AddImageModal
             toggleModal={() => this.toggleModal()}

@@ -13,6 +13,7 @@ class App extends Component {
 
   componentDidMount() {
     this.props.fetchUser(); // Fetches to determine auth status
+    this.props.fetchMemes(); // Fetches list of memes for current user
   }
 
   // Shows a Filter Bar
@@ -41,16 +42,16 @@ class App extends Component {
   }
 
   renderImages() {
-    this.props.fetchMemes(); // Fetches list of memes for current user
     if (!!this.props.memes) {
       return this.props.memes.map((meme, i) => {
         if (this.isImage(meme.link)) {
           return <MemeDisplay key={i} imgSrc={meme.link} link={meme.link} />;
         } else {
-          return <MemeDisplay key={i} imgSrc={placeholder} link={meme.link} />
+          return <MemeDisplay key={i} imgSrc={placeholder} link={meme.link} />;
         }
       });
     }
+    //  TODO: Add a view for if there are no images present.
   }
 
   isImage(link){
@@ -59,7 +60,7 @@ class App extends Component {
     if ( linkEnding === "jpg" || linkEnding === "jpeg" || linkEnding === "png") {
       return true;
     } else {
-      console.log(linkEnding);
+      console.log("here")
       return false;
     }
   }
@@ -80,6 +81,7 @@ class App extends Component {
           <AddImageModal
             toggleModal={() => this.toggleModal()}
             addMeme={this.props.addMeme}
+            fetchMemes={() => this.props.fetchMemes()}
           />
         ) : null}
       </div>

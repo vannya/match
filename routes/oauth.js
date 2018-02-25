@@ -5,6 +5,7 @@ module.exports = app => {
     res.send("Vannya's app!");
   });
 
+  // Google Login
   app.get(
     "/api/googlelogin",
     passport.authenticate("google", {
@@ -12,6 +13,7 @@ module.exports = app => {
     })
   );
 
+  // Google Callback
   app.get(
     "/api/googlelogin/redirect",
     passport.authenticate("google"),
@@ -19,4 +21,15 @@ module.exports = app => {
     //   res.redirect("/auth");
     // }
   );
+
+  // Gets Current User Info
+  app.get("/api/currentUser", (req, res) => {
+    res.send(req.user);
+  });
+
+  // Logout Handler
+  app.get("/api/logout", (req, res) =>  {
+    req.logout();
+    res.send(req.user);
+  })
 };

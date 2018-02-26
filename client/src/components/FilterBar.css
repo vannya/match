@@ -1,0 +1,44 @@
+.filter-bar {
+  height: 64px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 24px;
+  background-color: #2075b9;
+}
+
+.filter-bar-left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 33%;
+}
+
+.filter-bar-center {
+  color: #FFF;
+  font-size: 2em;
+  font-weight: 700;
+}
+
+.filter-bar-right {
+  width: 33%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.filter-bar-left > h3 {
+  padding-right: 24px;
+  color: #FFF;
+}
+
+.filter-selectors > select {
+  margin-right: 24px;
+  padding: 0.2em 0.4em;
+  font-size: 16px;
+  border-radius: 4px;
+}
+
+.filter-selectors > select > option {
+  padding: 0.2em 0.4em;
+}

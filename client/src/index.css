@@ -23,6 +23,29 @@ input {
 
 /* Creates a Red Btn with White Text */
 .red-btn {
-  background-color: rgb(255, 26, 45);
+  background-color: rgb(230, 27, 44);
   color: #FFF;
+}
+
+.meme-btn {
+  background-color: rgb(230, 27, 44);
+  color: #FFF;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.log-btn {
+  margin-left: 24px;
+  padding: 0.4em 0.8em;
+  border-radius: 4px;
+  border: none;
+  background-color: grey;
+  color: #FFF;
+  font-family: 'Raleway', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+
+  outline: none;
+  cursor: pointer;
 }

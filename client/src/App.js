@@ -26,18 +26,30 @@ class App extends Component {
         // Returns if user is not logged in
         return (
           <div className="filter-bar">
-            <a href="/api/googleLogin">SignIn</a>
-            <button onClick={() => this.loginTestUser()}>TestUser</button>
-            <a href="/api/googleLogin">Login</a>
+          <div className="filter-bar-left">
+            <button className="meme-btn" onClick={() => this.loginTestUser()}>TestUser</button>
+          </div>
+          <div className="filter-bar-right">
+            <a className="log-btn" href="/api/googleLogin">SignIn</a>
+            <a className="log-btn" href="/api/googleLogin">Login</a>
+          </div>
           </div>
         );
       default:
         // Returns if user is logged in
         return (
           <div className="filter-bar">
-            <FilterBar />
-            <button onClick={() => this.toggleModal()}>Add Images</button>
-            <a href="/api/logout">Logout</a>
+            <div className="filter-bar-left">
+              <h3>Filters: </h3>
+              <FilterBar />
+            </div>
+            <div className="filter-bar-center">
+              Match Memes
+            </div>
+            <div className="filter-bar-right">
+              <button className="meme-btn" onClick={() => this.toggleModal()}>Add Memes!</button>
+              <a className="log-btn" href="/api/logout">Logout</a>
+            </div>
           </div>
         );
     }

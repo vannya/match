@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import * as actions from "../actions";
+import "./FilterBar.css";
 
 class FilterBar extends Component {
   state = {
@@ -23,9 +24,9 @@ class FilterBar extends Component {
       return null;
     }
     return (
-      <div>
+      <div className="filter-selectors">
         <select onChange={e => this.handleOnChange(e)}>
-          <option value="all">ALL</option>
+          <option value="all">ALL TAGS</option>
           {this.props.tags.map((item, i) => {
             return (
               <option key={i} name={item} value={item}>

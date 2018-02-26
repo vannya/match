@@ -4,7 +4,9 @@ import * as actions from "./actions";
 import AddMemeModal from "./components/AddMemeModal";
 import MemeDisplay from "./components/MemeDisplay";
 import FilterBar from "./components/FilterBar";
-import placeholder from "./placeholder.jpg";
+import placeholder from "./website.png";
+import logo from "./logo.png";
+import logoXs from "./logo-xs.png";
 import "./App.css";
 
 class App extends Component {
@@ -26,13 +28,22 @@ class App extends Component {
         // Returns if user is not logged in
         return (
           <div className="filter-bar">
-          <div className="filter-bar-left">
-            <button className="meme-btn" onClick={() => this.loginTestUser()}>TestUser</button>
-          </div>
-          <div className="filter-bar-right">
-            <a className="log-btn" href="/api/googleLogin">SignIn</a>
-            <a className="log-btn" href="/api/googleLogin">Login</a>
-          </div>
+            <div className="filter-bar-left">
+              <button className="meme-btn" onClick={() => this.loginTestUser()}>
+                TestUser
+              </button>
+            </div>
+            <div className="filter-bar-center">
+              <img src={logoXs} alt="logo" />
+            </div>
+            <div className="filter-bar-right">
+              <a className="log-btn" href="/api/googleLogin">
+                SignIn
+              </a>
+              <a className="log-btn" href="/api/googleLogin">
+                Login
+              </a>
+            </div>
           </div>
         );
       default:
@@ -44,18 +55,22 @@ class App extends Component {
               <FilterBar />
             </div>
             <div className="filter-bar-center">
-              Match Memes
+              <img src={logoXs} alt="logo" />
             </div>
             <div className="filter-bar-right">
-              <button className="meme-btn" onClick={() => this.toggleModal()}>Add Memes!</button>
-              <a className="log-btn" href="/api/logout">Logout</a>
+              <button className="meme-btn" onClick={() => this.toggleModal()}>
+                Add Memes!
+              </button>
+              <a className="log-btn" href="/api/logout">
+                Logout
+              </a>
             </div>
           </div>
         );
     }
   }
 
-  async loginTestUser(){
+  async loginTestUser() {
     await this.props.loginDemo();
     await this.props.fetchMemes();
   }
@@ -65,7 +80,12 @@ class App extends Component {
   isImage(link) {
     const linkArr = link.split(".");
     const linkEnding = linkArr[linkArr.length - 1];
-    if (linkEnding === "jpg" || linkEnding === "jpeg" || linkEnding === "png" || linkEnding === "gif") {
+    if (
+      linkEnding === "jpg" ||
+      linkEnding === "jpeg" ||
+      linkEnding === "png" ||
+      linkEnding === "gif"
+    ) {
       return true;
     } else {
       return false;
@@ -91,18 +111,31 @@ class App extends Component {
       <div className="App">
         {this.renderFilterBar()}
         <div className="app-body">
-        {!!this.props.memes ? this.props.memes.map((meme, i) => {
-          return (
-            <MemeDisplay
-              key={i}
-              imgSrc={this.isImage(meme.link) ? meme.link : placeholder}
-              link={meme.link}
-              linkId={meme._id}
-              deleteImage={this.deleteImage}
-              tags={meme.tags}
-            />
-          )
-        }) : null}
+          {!!this.props.memes ? (
+            <div className="memes-list">
+              {this.props.memes.map((meme, i) => {
+                return (
+                  <MemeDisplay
+                    key={i}
+                    imgSrc={this.isImage(meme.link) ? meme.link : placeholder}
+                    link={meme.link}
+                    linkId={meme._id}
+                    deleteImage={this.deleteImage}
+                    tags={meme.tags}
+                  />
+                );
+              })}
+            </div>
+          ) : (
+            <div className="basic-landing">
+              <img className="large-logo" src={logo} alt="logo" />
+              <h2>Memes for your teams!</h2>
+              <p>
+                When you can only express yourself via meme, have your favorites
+                at your fingertips.
+              </p>
+            </div>
+          )}
         </div>
         {!!this.state.modalShowing ? (
           <AddMemeModal

@@ -1,5 +1,5 @@
 .filter-bar {
-  height: 64px;
+  height: 8%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -13,18 +13,6 @@
   flex-direction: row;
   align-items: center;
   width: 33%;
-}
-
-.filter-bar-center {
-  color: #FFF;
-  font-size: 2em;
-  font-weight: 700;
-}
-
-.filter-bar-right {
-  width: 33%;
-  display: flex;
-  justify-content: flex-end;
 }
 
 .filter-bar-left > h3 {
@@ -41,4 +29,15 @@
 
 .filter-selectors > select > option {
   padding: 0.2em 0.4em;
+}
+
+.filter-bar-center {
+  display: flex;
+  align-items: center;
+}
+
+.filter-bar-right {
+  width: 33%;
+  display: flex;
+  justify-content: flex-end;
 }

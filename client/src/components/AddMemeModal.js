@@ -7,6 +7,7 @@ class AddMemeModal extends Component {
     tags: []
   };
 
+  // Turns a comma separated string list into an array
   tagsIntoArray(tagStr) {
     let tagArr = tagStr
       .split(",")

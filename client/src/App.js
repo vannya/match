@@ -38,7 +38,7 @@ class App extends Component {
             </div>
             <div className="filter-bar-right">
               <a className="log-btn" href="/api/googleLogin">
-                SignIn
+                Sign Up
               </a>
               <a className="log-btn" href="/api/googleLogin">
                 Login
@@ -47,7 +47,7 @@ class App extends Component {
             <div className="mobile-filter-bar">
               <div className="mobile-filter-bar-top">
                 <a className="log-btn" href="/api/googleLogin">
-                  SignIn
+                  Sign Up
                 </a>
                 <a className="log-btn" href="/api/googleLogin">
                   Login
@@ -57,6 +57,7 @@ class App extends Component {
           </div>
         );
       default:
+        console.log("default")
         // Returns if user is logged in
         return (
           <div className="filter-bar">
@@ -94,13 +95,13 @@ class App extends Component {
     }
   }
 
+  // Logs in the Test User
   async loginTestUser() {
     await this.props.loginDemo();
     await this.props.fetchMemes();
   }
 
   // Verifies that link is an image, else will render a placeholder image.
-  // TODO: Create better placeholder image.
   isImage(link) {
     const linkArr = link.split(".");
     const linkEnding = linkArr[linkArr.length - 1];

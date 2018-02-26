@@ -3,11 +3,16 @@
   "version": "1.0.0",
   "description": "Match.com's Component Challenge",
   "main": "index.js",
+  "engines": {
+		"node": "8.9.3",
+    "npm": "5.5.1"
+  },
   "scripts": {
     "client": "npm run start --prefix client",
     "server": "nodemon index.js",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "start": "node index.js"
+    "start": "node index.js",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "author": "Van Tabbert",
   "license": "MIT",

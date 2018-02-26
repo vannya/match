@@ -20,28 +20,25 @@ class FilterBar extends Component {
   }
 
   render() {
-    if (!this.props.tags) {
-      return null;
-    }
     return (
       <div className="filter-selectors">
         <select onChange={e => this.handleOnChange(e)}>
           <option value="all">ALL TAGS</option>
-          {this.props.tags.map((item, i) => {
+          {!!this.props.tags ? this.props.tags.map((item, i) => {
             return (
               <option key={i} name={item} value={item}>
                 {item}
               </option>
             );
-          })}
+          }) : null}
         </select>
       </div>
     );
   }
 }
 
-function mapStateToProps({ tags }) {
-  return { tags };
+function mapStateToProps({ tags, oauth }) {
+  return { tags, oauth };
 }
 
 export default connect(mapStateToProps, actions)(FilterBar);

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import * as actions from "./actions";
-import AddImageModal from "./components/AddImageModal";
+import AddMemeModal from "./components/AddMemeModal";
 import MemeDisplay from "./components/MemeDisplay";
 import FilterBar from "./components/FilterBar";
 import placeholder from "./placeholder.jpg";
@@ -15,7 +15,6 @@ class App extends Component {
   componentDidMount() {
     this.props.fetchUser(); // Fetches to determine auth status
     this.props.fetchMemes(); // Fetches list of memes for current user
-    this.props.fetchTags(); // Fetches list of all distinct tags
   }
 
   // Shows a Filter Bar
@@ -49,38 +48,6 @@ class App extends Component {
     await this.props.fetchMemes();
   }
 
-  // Renders list of images.
-  renderImages() {
-    if (!!this.props.memes) {
-      return this.props.memes.map((meme, i) => {
-        if (this.isImage(meme.link)) {
-          return (
-            <MemeDisplay
-              key={i}
-              imgSrc={meme.link}
-              link={meme.link}
-              linkId={meme._id}
-              deleteImage={this.deleteImage}
-              tags={meme.tags}
-            />
-          );
-        } else {
-          return (
-            <MemeDisplay
-              key={i}
-              imgSrc={placeholder}
-              link={meme.link}
-              linkId={meme._id}
-              deleteImage={this.deleteImage}
-              tags={meme.tags}
-            />
-          );
-        }
-      });
-    }
-    //  TODO: Add a view for if there are no images present.
-  }
-
   // Verifies that link is an image, else will render a placeholder image.
   // TODO: Create better placeholder image.
   isImage(link) {
@@ -101,21 +68,36 @@ class App extends Component {
   }
 
   // Deletes an Image
-  deleteImage = imageId => {
-    this.props.deleteMeme(imageId);
+  deleteImage = async imageId => {
+    await this.props.deleteMeme(imageId);
     this.props.fetchMemes();
+    this.props.fetchTags();
   };
 
   render() {
     return (
       <div className="App">
         {this.renderFilterBar()}
-        <div className="app-body">{this.renderImages()}</div>
+        <div className="app-body">
+        {!!this.props.memes ? this.props.memes.map((meme, i) => {
+          return (
+            <MemeDisplay
+              key={i}
+              imgSrc={this.isImage(meme.link) ? meme.link : placeholder}
+              link={meme.link}
+              linkId={meme._id}
+              deleteImage={this.deleteImage}
+              tags={meme.tags}
+            />
+          )
+        }) : null}
+        </div>
         {!!this.state.modalShowing ? (
-          <AddImageModal
+          <AddMemeModal
             toggleModal={() => this.toggleModal()}
             addMeme={this.props.addMeme}
             fetchMemes={() => this.props.fetchMemes()}
+            fetchTags={() => this.props.fetchTags()}
           />
         ) : null}
       </div>

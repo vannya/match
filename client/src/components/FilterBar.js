@@ -1,26 +1,15 @@
-import React, { Component } from 'react';
-import {connect} from "react-redux";
+import React, { Component } from "react";
+import { connect } from "react-redux";
 import * as actions from "../actions";
+import "./FilterBar.css";
 
 class FilterBar extends Component {
-
   state = {
     currentSearch: "all"
-  }
+  };
 
   componentDidMount() {
     this.props.fetchTags();
-  }
-
-  renderOptions() {
-    const {tags} = this.props;
-    return tags.map((item, i) => {
-      return (
-        <option key={i} name={item} value={item}>
-          {item}
-        </option>
-      );
-    });
   }
 
   handleOnChange(e) {
@@ -31,19 +20,28 @@ class FilterBar extends Component {
   }
 
   render() {
+    if (!this.props.tags) {
+      return null;
+    }
     return (
-      <div>
+      <div className="filter-selectors">
         <select onChange={e => this.handleOnChange(e)}>
-          <option value="all">ALL</option>
-          {!!this.props.tags ? this.renderOptions() : null}
+          <option value="all">ALL TAGS</option>
+          {this.props.tags.map((item, i) => {
+            return (
+              <option key={i} name={item} value={item}>
+                {item}
+              </option>
+            );
+          })}
         </select>
       </div>
     );
   }
 }
 
-function mapStateToProps({tags}){
-  return {tags};
+function mapStateToProps({ tags }) {
+  return { tags };
 }
 
 export default connect(mapStateToProps, actions)(FilterBar);

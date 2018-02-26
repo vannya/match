@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import "./AddImageModal.css";
+import "./AddMemeModal.css";
 
-class AddImageModal extends Component {
+class AddMemeModal extends Component {
   state = {
     link: "",
     tags: []
@@ -9,9 +9,9 @@ class AddImageModal extends Component {
 
   tagsIntoArray(tagStr) {
     let tagArr = tagStr
-    .split(",")
-    .map(tag => tag.trim())
-    .filter(tag => tag !== "");
+      .split(",")
+      .map(tag => tag.trim())
+      .filter(tag => tag !== "");
     return tagArr;
   }
 
@@ -29,16 +29,19 @@ class AddImageModal extends Component {
   };
 
   handleOnSubmit = e => {
-    e.preventDefault();
     if (!!this.state.link) {
       this.props.addMeme({
         link: this.state.link,
         tags: this.state.tags
       });
     }
-    this.props.fetchMemes();
+    this.props.fetchTags();
     this.props.toggleModal();
   };
+
+  componentWillUnmount(){
+    this.props.fetchMemes();
+  }
 
   render() {
     return (
@@ -67,4 +70,4 @@ class AddImageModal extends Component {
   }
 }
 
-export default AddImageModal;
+export default AddMemeModal;

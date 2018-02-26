@@ -4,6 +4,7 @@ const { Schema } = mongoose;
 //Creates a new meme model
 const memeSchema = new Schema({
   link: String,
+  tags: [],
   _user: { type: Schema.Types.ObjectId, ref: "User" }
 });
 

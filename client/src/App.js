@@ -58,6 +58,7 @@ class App extends Component {
               link={meme.link}
               linkId={meme._id}
               deleteImage={this.deleteImage}
+              tags={meme.tags}
             />
           );
         } else {
@@ -68,6 +69,7 @@ class App extends Component {
               link={meme.link}
               linkId={meme._id}
               deleteImage={this.deleteImage}
+              tags={meme.tags}
             />
           );
         }

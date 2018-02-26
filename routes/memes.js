@@ -50,6 +50,20 @@ module.exports = app => {
       console.assert(Array.isArray(result));
       return result;
     });
-    res.send({tags: tags});
+    res.send(tags);
+  });
+
+  app.get("/api/tags/:tag", async (req, res) => {
+    if(!req.user) {
+      return;
+    };
+
+    if(req.params.tag === "all") {
+      const memes = await Meme.find({ _user: req.user.id });
+      res.send(memes);
+    } else {
+      const memes = await Meme.find({ tags: req.params.tag });
+      res.send(memes);
+    };
   })
 };

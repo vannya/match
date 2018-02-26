@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import * as actions from "./actions";
 import AddImageModal from "./components/AddImageModal";
 import MemeDisplay from "./components/MemeDisplay";
+import FilterBar from "./components/FilterBar";
 import placeholder from "./placeholder.jpg";
 import "./App.css";
 
@@ -35,6 +36,7 @@ class App extends Component {
         // Returns if user is logged in
         return (
           <div className="filter-bar">
+            <FilterBar />
             <button onClick={() => this.toggleModal()}>Add Images</button>
             <a href="/api/logout">Logout</a>
           </div>

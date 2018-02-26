@@ -18,10 +18,15 @@
 .add-image-modal {
   position: relative;
   margin: 0 auto;
-  height: 100px;
+  padding: 1em 3em;
   width: 400px;
   background-color: white;
+  border-radius: 4px;
   animation: slideInTop 0.8s ease both;
+}
+
+.add-image-modal > h2 {
+  text-align: center;
 }
 
 .add-image-modal > form {
@@ -30,6 +35,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.add-image-modal > form > input {
+  margin-bottom: 12px;
+  width: 100%;
 }
 
 

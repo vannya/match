@@ -21,8 +21,8 @@ export const loginDemo = () => async dispatch => {
 };
 
 // Adds Image
-export const addMeme = link => async dispatch => {
-  const res = await axios.post("/api/newMeme", link);
+export const addMeme = newMeme => async dispatch => {
+  const res = await axios.post("/api/newMeme", newMeme);
 
   dispatch({ type: FETCH_USER, payload: res.data });
 };

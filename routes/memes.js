@@ -19,7 +19,8 @@ module.exports = app => {
 
     const meme = await new Meme({
       link: req.body.link,
-      _user: req.user.id
+      _user: req.user.id,
+      tags: req.body.tags
     }).save();
     res.send(req.user);
   });

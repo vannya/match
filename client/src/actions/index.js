@@ -48,6 +48,7 @@ export const fetchTags = () => async dispatch => {
   dispatch({ type: FETCH_TAGS, payload: res.data });
 }
 
+// Searches for memes based on tags
 export const searchTag = (tag) => async dispatch => {
   const res = await axios.get(`/api/tags/${tag}`);
 

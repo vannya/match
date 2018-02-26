@@ -36,7 +36,7 @@ Now you should be good to go!
 
 
 ## Create a keys.js file  
-Create a file called `keys.js` (in the main folder).
+Create a file called `dev.js` in keys folder.
 
 ```
 module.exports = {  

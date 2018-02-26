@@ -52,3 +52,23 @@
     transform: translateY(120px);
   }
 }
+
+@media screen and (max-width: 800px) {
+  .add-image-modal {
+    margin: 0 auto;
+    width: 250px;
+    padding: 1em 2em;
+  }
+
+  .add-image-modal > h2 {
+    width: 100%;
+    font-size: 1.2em;
+    text-align: center;
+  }
+
+  .add-image-modal > form > input {
+    margin-bottom: 12px;
+    width: 250px;
+  }
+  
+}

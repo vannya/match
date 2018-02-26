@@ -38,7 +38,7 @@ class App extends Component {
             </div>
             <div className="filter-bar-right">
               <a className="log-btn" href="/api/googleLogin">
-                Sign Up
+                SignUp
               </a>
               <a className="log-btn" href="/api/googleLogin">
                 Login
@@ -49,6 +49,9 @@ class App extends Component {
                 <a className="log-btn" href="/api/googleLogin">
                   Sign Up
                 </a>
+                <button className="meme-btn" onClick={() => this.loginTestUser()}>
+                  TestUser
+                </button>
                 <a className="log-btn" href="/api/googleLogin">
                   Login
                 </a>

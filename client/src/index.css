@@ -38,8 +38,8 @@ input {
 /* Creates a Gray Btn with White Text */
 .log-btn {
   width: 60px;
-  margin-left: 24px;
-  padding: 0.4em 0.8em;
+  margin: 0 12px;
+  padding: 0.4em 0.4em;
   border-radius: 4px;
   border: none;
   background-color: grey;
@@ -49,7 +49,6 @@ input {
   font-weight: 700;
   text-decoration: none;
   text-align: center;
-
   outline: none;
   cursor: pointer;
 }

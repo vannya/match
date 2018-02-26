@@ -62,7 +62,7 @@ module.exports = app => {
       const memes = await Meme.find({ _user: req.user.id });
       res.send(memes);
     } else {
-      const memes = await Meme.find({ tags: req.params.tag });
+      const memes = await Meme.find({ _user: req.user.id, tags: req.params.tag });
       res.send(memes);
     };
   })

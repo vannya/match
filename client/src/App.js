@@ -65,6 +65,23 @@ class App extends Component {
                 Logout
               </a>
             </div>
+            <div className="mobile-filter-bar">
+              <div className="mobile-filter-bar-row">
+                <img src={logoXs} alt="logo" />
+              </div>
+              <div className="mobile-filter-bar-row">
+                <button className="meme-btn" onClick={() => this.toggleModal()}>
+                  Add Memes!
+                </button>
+                <a className="log-btn" href="/api/logout">
+                  Logout
+                </a>
+              </div>
+              <div className="mobile-filter-bar-row">
+                <h3>Filters: </h3>
+                <FilterBar />
+              </div>
+            </div>
           </div>
         );
     }

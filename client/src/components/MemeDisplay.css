@@ -1,6 +1,7 @@
 .meme-display {
   position: relative;
   width: 220px;
+  max-height: 70%;
   padding: 12px;
   margin: 12px;
   display: flex;
@@ -53,4 +54,10 @@
   border-radius: 4px;
   background-color: #2075b9;
   color: #fff;
+}
+
+@media screen and (max-width: 800px) {
+  .meme-display {
+    max-height: unset
+  }
 }

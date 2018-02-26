@@ -1,5 +1,6 @@
 .filter-bar {
   height: 8%;
+  min-height: 64px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -41,3 +42,46 @@
   display: flex;
   justify-content: flex-end;
 }
+.mobile-filter-bar {
+  display: none;
+}
+
+@media screen and (max-width: 800px) {
+  .filter-bar {
+    height: unset;
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px 24px;
+  }
+
+  .filter-bar-left {
+    display: none;
+  }
+  .filter-bar-center {
+    display: none;
+  }
+  .filter-bar-right {
+    display: none;
+  }
+  .mobile-filter-bar {
+    display: flex;
+    flex-direction: column;
+    
+  }
+
+  .mobile-filter-bar-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 1.6em;
+  }
+
+  .mobile-filter-bar-row > h3 {
+    margin: 0;
+    padding-right: 24px;
+    color: #FFF;
+  }
+}
+

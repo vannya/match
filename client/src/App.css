@@ -38,6 +38,6 @@
 
 @media screen and (max-width: 800px) {
   .app-body {
-    min-height: unset;
+    min-height: 84%;
   }
 }

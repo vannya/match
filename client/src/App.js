@@ -44,6 +44,16 @@ class App extends Component {
                 Login
               </a>
             </div>
+            <div className="mobile-filter-bar">
+              <div className="mobile-filter-bar-top">
+                <a className="log-btn" href="/api/googleLogin">
+                  SignIn
+                </a>
+                <a className="log-btn" href="/api/googleLogin">
+                  Login
+                </a>
+              </div>
+            </div>
           </div>
         );
       default:
@@ -66,9 +76,6 @@ class App extends Component {
               </a>
             </div>
             <div className="mobile-filter-bar">
-              <div className="mobile-filter-bar-row">
-                <img src={logoXs} alt="logo" />
-              </div>
               <div className="mobile-filter-bar-row">
                 <button className="meme-btn" onClick={() => this.toggleModal()}>
                   Add Memes!

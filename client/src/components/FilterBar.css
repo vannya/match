@@ -49,7 +49,6 @@
 @media screen and (max-width: 800px) {
   .filter-bar {
     height: unset;
-    min-height: 150px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -66,16 +65,24 @@
     display: none;
   }
   .mobile-filter-bar {
+    width: 100%;
     display: flex;
     flex-direction: column;
-    
+    justify-content: space-around
+  }
+
+  .mobile-filter-bar-top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
   }
 
   .mobile-filter-bar-row {
     display: flex;
     flex-direction: row;
+    justify-content: center;
     align-items: center;
-    padding: 1.6em;
+    height: 60px;
   }
 
   .mobile-filter-bar-row > h3 {

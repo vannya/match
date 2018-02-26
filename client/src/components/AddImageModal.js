@@ -45,6 +45,7 @@ class AddImageModal extends Component {
       <div className="modal-wrapper">
         <div className="overlay" onClick={this.props.toggleModal} />
         <div className="add-image-modal">
+          <h2>Add Your Favorite Memes!</h2>
           <form onSubmit={this.handleOnSubmit}>
             <input
               type="url"

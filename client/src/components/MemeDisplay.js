@@ -1,4 +1,5 @@
 import React from 'react';
+import {CopyToClipboard} from "react-copy-to-clipboard";
 import "./MemeDisplay.css";
 
 const MemeDisplay = ({imgSrc, link, linkId, deleteImage, tags}) => {
@@ -21,7 +22,9 @@ const MemeDisplay = ({imgSrc, link, linkId, deleteImage, tags}) => {
       </div>
       <div className="btn-box">
         <button className="meme-display-btn red-btn" onClick={() => deleteImage(linkId)}>Delete</button>
-        <button className="meme-display-btn">Copy</button>
+        <CopyToClipboard text={link}>
+          <button className="meme-display-btn">Copy</button>
+        </CopyToClipboard>
       </div>
     </div>
   );

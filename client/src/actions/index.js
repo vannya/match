@@ -1,5 +1,5 @@
 import axios from "axios";
-import { FETCH_USER, FETCH_MEMES } from "./types";
+import { FETCH_USER, FETCH_MEMES, FETCH_TAGS } from "./types";
 
 // Fetches Current User
 export const fetchUser = () => async dispatch => {
@@ -40,3 +40,10 @@ export const fetchMemes = () => async dispatch => {
 
   dispatch({ type: FETCH_MEMES, payload: res.data });
 };
+
+// Fetches list of all distinct tags
+export const fetchTags = () => async dispatch => {
+  const res = await axios.get("/api/tags");
+
+  dispatch({ type: FETCH_TAGS, payload: res.data });
+}

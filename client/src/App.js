@@ -14,6 +14,7 @@ class App extends Component {
   componentDidMount() {
     this.props.fetchUser(); // Fetches to determine auth status
     this.props.fetchMemes(); // Fetches list of memes for current user
+    this.props.fetchTags(); // Fetches list of all distinct tags
   }
 
   // Shows a Filter Bar
@@ -120,8 +121,8 @@ class App extends Component {
   }
 }
 
-function mapStateToProps({ oauth, memes }) {
-  return { oauth, memes };
+function mapStateToProps({ oauth, memes, tags }) {
+  return { oauth, memes, tags };
 }
 
 export default connect(mapStateToProps, actions)(App);

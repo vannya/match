@@ -15,8 +15,8 @@ class App extends Component {
   };
 
   componentDidMount() {
-    this.props.fetchUser(); // Fetches to determine auth status
     this.props.fetchMemes(); // Fetches list of memes for current user
+    this.props.fetchUser(); // Fetches to determine auth status
   }
 
   // Shows a Filter Bar

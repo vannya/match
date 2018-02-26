@@ -11,6 +11,7 @@
 .meme-display > a > img {
   height: 200px;
   width: 200px;
+  object-fit: contain;
 }
 
 .meme-display > input {

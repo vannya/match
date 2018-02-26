@@ -16,12 +16,6 @@ class App extends Component {
     this.props.fetchMemes(); // Fetches list of memes for current user
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    console.log(nextProps);
-    // return this.props.oauth !== nextProps.oauth;
-    return true;
-  }
-
   // Shows a Filter Bar
   renderFilterBar() {
     switch (this.props.oauth) {
@@ -87,7 +81,7 @@ class App extends Component {
   isImage(link) {
     const linkArr = link.split(".");
     const linkEnding = linkArr[linkArr.length - 1];
-    if (linkEnding === "jpg" || linkEnding === "jpeg" || linkEnding === "png") {
+    if (linkEnding === "jpg" || linkEnding === "jpeg" || linkEnding === "png" || linkEnding === "gif") {
       return true;
     } else {
       return false;

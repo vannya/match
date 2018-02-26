@@ -48,7 +48,7 @@ module.exports = {
 ```
 
 ### Get credentials through Google.   
-Go to [console.developers.google.com](https://console.developers.google.com/apis?project=match-three-components)  
+Go to [console.developers.google.com](https://console.developers.google.com/apis)  
 Create new project and give project a name.
 Open project.
 

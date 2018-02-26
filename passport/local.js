@@ -15,14 +15,15 @@ passport.deserializeUser((id, done) => {
 });
 
 // Strategy to log in the test demo only.
-passport.use(
-  new LocalStrategy(async (username, password, done) => {
-    const existingUser = await User.findOne({
-      googleId: username
-    });
 
-    if (existingUser) {
-      done(null, existingUser);
-    }
-  })
-);
+passport.use(new LocalStrategy({passReqToCallback: true},
+  function(req, username, password, done) {
+    User.findOne({ googleId: username }, function (err, user) {
+      if (err) { return done(err); }
+      if (!user) {
+        return done(null, false, { message: 'Incorrect username.' });
+      }
+      return done(null, user);
+    });
+  }
+));

@@ -4,6 +4,9 @@ const Meme = mongoose.model("memes");
 
 module.exports = app => {
   app.get("/api/memes", async (req, res) => {
+    if (!req.user) {
+      return;
+    };
     const memes = await Meme.find({ _user: req.user.id });
 
     res.send(memes);

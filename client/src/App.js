@@ -81,7 +81,7 @@ class App extends Component {
   isImage(link) {
     const linkArr = link.split(".");
     const linkEnding = linkArr[linkArr.length - 1];
-    if (linkEnding === "jpg" || linkEnding === "jpeg" || linkEnding === "png") {
+    if (linkEnding === "jpg" || linkEnding === "jpeg" || linkEnding === "png" || linkEnding === "gif") {
       return true;
     } else {
       return false;

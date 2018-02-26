@@ -34,11 +34,23 @@ module.exports = app => {
   });
 
   // Test User Login for Match demonstration purposes
-  app.post(
-    "/api/testUser",
-    passport.authenticate("local", {
-      successRedirect: "/", // redirect to the secure profile section
-      failureRedirect: "/" // redirect back to the signup page if there is an error
-    })
-  );
+  app.post("/api/testUser", function(req, res, next) {
+    passport.authenticate("local", function(err, user, info) {
+      if (err) {
+        return next(err); // Error 500
+      }
+
+      if (!user) {
+        //Authentication failed
+        return res.json(401, { error: info.message });
+      }
+      //Authentication successful
+      req.logIn(user, function(err) {
+        if (err) {
+          return next(err);
+        }
+        return res.send(user);
+      });
+    })(req, res, next); 
+  });
 };

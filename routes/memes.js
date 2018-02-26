@@ -44,7 +44,7 @@ module.exports = app => {
     if (!req.user) {
       return;
     };
-    const tags = await Meme.distinct("tags", function(err, result) {
+    const tags = await Meme.find({_user: req.user.id}).distinct("tags", function(err, result) {
       if (err) return handleError(err);
 
       console.assert(Array.isArray(result));

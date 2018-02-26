@@ -15,8 +15,8 @@ class App extends Component {
   };
 
   componentDidMount() {
-    this.props.fetchMemes(); // Fetches list of memes for current user
     this.props.fetchUser(); // Fetches to determine auth status
+    this.props.fetchMemes(); // Fetches list of memes for current user
   }
 
   // Shows a Filter Bar
@@ -60,7 +60,6 @@ class App extends Component {
           </div>
         );
       default:
-        console.log("default")
         // Returns if user is logged in
         return (
           <div className="filter-bar">

@@ -16,6 +16,12 @@ class App extends Component {
     this.props.fetchMemes(); // Fetches list of memes for current user
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log(nextProps);
+    // return this.props.oauth !== nextProps.oauth;
+    return true;
+  }
+
   // Shows a Filter Bar
   renderFilterBar() {
     switch (this.props.oauth) {

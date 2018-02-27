@@ -32,15 +32,15 @@ class AddMemeModal extends Component {
   };
 
   // Handles form submission.
-  handleOnSubmit = e => {
+  handleOnSubmit = async e => {
     e.preventDefault();
     if (!!this.state.link) {
-      this.props.addMeme({
+      await this.props.addMeme({
         link: this.state.link,
         tags: this.state.tags
       });
     }
-    this.props.fetchTags();
+    await this.props.fetchTags();
     this.props.toggleModal();
   };
 

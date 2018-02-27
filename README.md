@@ -2,7 +2,10 @@
 
 ### Built using React, Redux, Express, Node and MongoDB
 
+# [Live Demo](https://match-three-component.herokuapp.com/)  
 
+Head over to Heroku for a [live demo](https://match-three-component.herokuapp.com/).  
+You have the option to log in using your Google account or check out the TestUser Demo which requires no login.  
 
 # To run on dev: 
 

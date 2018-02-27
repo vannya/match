@@ -35,8 +35,7 @@ class AddMemeModal extends Component {
         tags: this.state.tags
       });
     }
-    this.props.fetchTags();
-    this.props.toggleModal();
+    this.props.fetchTags().then(this.props.toggleModal());
   };
 
   componentWillUnmount(){

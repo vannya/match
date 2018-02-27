@@ -118,6 +118,7 @@ class App extends Component {
       });
     });
     this.props.actions.fetchMemes();
+    this.props.actions.fetchTags();
   }
 
   // Logs in the Test User and fetches their memes

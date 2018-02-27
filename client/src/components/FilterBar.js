@@ -21,17 +21,20 @@ class FilterBar extends Component {
   }
 
   render() {
+    let sortedTags = this.props.tags || [];
+    sortedTags.sort();
+
     return (
       <div className="filter-selectors">
         <select onChange={e => this.handleOnChange(e)}>
           <option value="all">ALL TAGS</option>
-          {!!this.props.tags ? this.props.tags.map((item, i) => {
+          {sortedTags.map((item, i) => {
             return (
               <option key={i} name={item} value={item}>
                 {item}
               </option>
             );
-          }) : null}
+          })}
         </select>
       </div>
     );

@@ -29,13 +29,15 @@ class AddMemeModal extends Component {
   };
 
   handleOnSubmit = e => {
+    e.preventDefault();
     if (!!this.state.link) {
       this.props.addMeme({
         link: this.state.link,
         tags: this.state.tags
       });
     }
-    this.props.fetchTags().then(this.props.toggleModal());
+    this.props.fetchTags();
+    this.props.toggleModal();
   };
 
   componentWillUnmount(){

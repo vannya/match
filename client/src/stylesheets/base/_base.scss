@@ -1,0 +1,121 @@
+//----------------------------------------------
+//              Basic Styles
+//----------------------------------------------
+
+/**
+*	Box Model Setup
+*/
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body, button {
+  color: color-list('text-dark');
+  font-size: $base-font-size;
+  font-family: $base-font-family;
+  font-weight: $base-font-weight;
+  line-height: 1.6;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+input {
+  padding: 0.4em;
+  font-family: 'Raleway', sans-serif;
+  font-size: 16px;
+}
+
+button {
+  &:hover {
+    cursor: pointer;
+  }
+  padding: 0.4em 0.8em;
+  font-family: 'Raleway', sans-serif;
+  font-size: 16px;
+  border-radius: 4px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.App {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-body {
+  min-height: 92%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  
+  .memes-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .basic-landing {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #2075b9;
+    color: #FFF;
+    text-align: center;
+    
+    img {
+      width: 80%;
+      max-width: 538px;
+      height: auto;
+    }
+  }
+}
+
+
+
+
+/* Creates a Red Btn with White Text */
+.red-btn {
+  background-color: rgb(230, 27, 44);
+  color: #FFF;
+}
+
+/* Creates a larger Red Btn with White Text */
+.meme-btn {
+  background-color: rgb(230, 27, 44);
+  color: #FFF;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+/* Creates a Gray Btn with White Text */
+.log-btn {
+  margin: 0 12px;
+  padding: 0.4em 0.4em;
+  border-radius: 4px;
+  border: none;
+  background-color: #dcdcdc;
+  color: #000;
+  text-decoration: none;
+  text-align: center;
+  outline: none;
+  cursor: pointer;
+}
+
+/* Creates a Light Btn with White Text */
+.meme-display-btn {
+  width: 80px;
+}

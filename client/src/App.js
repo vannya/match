@@ -4,10 +4,9 @@ import * as actions from "./actions";
 import AddMemeModal from "./components/AddMemeModal";
 import MemeDisplay from "./components/MemeDisplay";
 import FilterBar from "./components/FilterBar";
-import placeholder from "./website.png";
-import logo from "./logo.png";
-import logoXs from "./logo-xs.png";
-import "./App.css";
+import placeholder from "./stylesheets/assets/website.png";
+import logo from "./stylesheets/assets/logo.png";
+import logoXs from "./stylesheets/assets/logo-xs.png";
 
 class App extends Component {
   state = {
@@ -101,6 +100,7 @@ class App extends Component {
   async loginTestUser() {
     await this.props.loginDemo();
     await this.props.fetchMemes();
+    
   }
 
   // Verifies that link is an image, else will render a placeholder image.

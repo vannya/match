@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import {bindActionCreators} from "redux";
 import * as actions from "./actions";
 import AddMemeModal from "./components/AddMemeModal";
 import MemeDisplay from "./components/MemeDisplay";
@@ -14,8 +15,7 @@ class App extends Component {
   };
 
   componentDidMount() {
-    this.props.fetchUser(); // Fetches to determine auth status
-    this.props.fetchMemes(); // Fetches list of memes for current user
+    this.props.actions.fetchUser(); // Fetches to determine auth status
   }
 
   // Shows a Filter Bar
@@ -97,9 +97,9 @@ class App extends Component {
   }
 
   // Logs in the Test User
-  async loginTestUser() {
-    await this.props.loginDemo();
-    await this.props.fetchMemes();
+  loginTestUser() {
+    this.props.actions.loginDemo();
+    this.props.actions.fetchMemes();
     
   }
 
@@ -128,9 +128,9 @@ class App extends Component {
 
   // Deletes an Image
   deleteImage = async imageId => {
-    await this.props.deleteMeme(imageId);
-    this.props.fetchMemes();
-    this.props.fetchTags();
+    await this.props.actions.deleteMeme(imageId);
+    this.props.actions.fetchMemes();
+    this.props.actions.fetchTags();
   };
 
   render() {
@@ -167,9 +167,9 @@ class App extends Component {
         {!!this.state.modalShowing ? (
           <AddMemeModal
             toggleModal={() => this.toggleModal()}
-            addMeme={this.props.addMeme}
-            fetchMemes={() => this.props.fetchMemes()}
-            fetchTags={() => this.props.fetchTags()}
+            addMeme={this.props.actions.addMeme}
+            fetchMemes={() => this.props.actions.fetchMemes()}
+            fetchTags={() => this.props.actions.fetchTags()}
           />
         ) : null}
       </div>
@@ -181,4 +181,10 @@ function mapStateToProps({ oauth, memes, tags }) {
   return { oauth, memes, tags };
 }
 
-export default connect(mapStateToProps, actions)(App);
+const mapDispatchToProps = dispatch => {
+  return {
+    actions: bindActionCreators(actions, dispatch)
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

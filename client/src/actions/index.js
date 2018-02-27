@@ -20,21 +20,21 @@ export const loginDemo = () => async dispatch => {
   dispatch({ type: FETCH_USER, payload: res.data });
 };
 
-// Adds Image
+// Adds Meme
 export const addMeme = newMeme => async dispatch => {
   const res = await axios.post("/api/newMeme", newMeme);
 
   dispatch({ type: FETCH_USER, payload: res.data });
 };
 
-// Deletes Image
+// Deletes Meme
 export const deleteMeme = imageId => async dispatch => {
   const res = await axios.delete(`/api/memes/del/${imageId}`, imageId);
 
   dispatch({ type: FETCH_USER, payload: res.data });
 };
 
-// Fetches all Images
+// Fetches all Memes
 export const fetchMemes = () => async dispatch => {
   const res = await axios.get("/api/memes");
 

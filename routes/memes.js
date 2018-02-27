@@ -4,17 +4,17 @@ const Meme = mongoose.model("memes");
 
 module.exports = app => {
 
-  // Returns all of a user's images 
+  // Returns all of a user's memes 
   app.get("/api/memes", async (req, res) => {
     if (!req.user) {
       return;
     };
     const memes = await Meme.find({ _user: req.user.id });
 
-    res.send(memes);
+    return res.send(memes);
   });
 
-  // Adds Image
+  // Adds Meme
   app.post("/api/newMeme", async (req, res) => {
     if (!req.user) {
       return res.status(401).send({ error: "Login required" });
@@ -28,7 +28,7 @@ module.exports = app => {
     res.send(req.user);
   });
 
-  // Deletes Images
+  // Deletes Meme
   app.delete("/api/memes/del/:imageId", async (req, res) => {
     if (!req.user) {
       return res.status(401).send({ error: "Login required" });
@@ -50,7 +50,7 @@ module.exports = app => {
       console.assert(Array.isArray(res));
       return res;
     });
-    res.send(tags);
+    return res.send(tags);
   });
 
   // Searches based on tag choice

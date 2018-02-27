@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import {bindActionCreators} from "redux";
 import * as actions from "../actions";
 
 class FilterBar extends Component {
@@ -8,11 +9,12 @@ class FilterBar extends Component {
   };
 
   componentDidMount() {
-    this.props.fetchTags();
+    this.props.actions.fetchMemes();
+    this.props.actions.fetchTags();
   }
 
   handleOnChange(e) {
-    this.props.searchTag(e.target.value);
+    this.props.actions.searchTag(e.target.value);
     this.setState({
       currentSearch: e.target.value
     });
@@ -40,4 +42,10 @@ function mapStateToProps({ tags, oauth }) {
   return { tags, oauth };
 }
 
-export default connect(mapStateToProps, actions)(FilterBar);
+const mapDispatchToProps = dispatch => {
+  return {
+    actions: bindActionCreators(actions, dispatch)
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(FilterBar);

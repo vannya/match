@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import {bindActionCreators} from "redux";
+import { bindActionCreators } from "redux";
 import * as actions from "./actions";
 import AddMemeModal from "./components/AddMemeModal";
 import MemeDisplay from "./components/MemeDisplay";
@@ -8,21 +8,23 @@ import FilterBar from "./components/FilterBar";
 import placeholder from "./stylesheets/assets/website.png";
 import logo from "./stylesheets/assets/logo.png";
 import logoXs from "./stylesheets/assets/logo-xs.png";
+import demo from "./demo-data.json";
 
 class App extends Component {
   state = {
     modalShowing: false
   };
 
+  // Fetches to determine auth status
   componentDidMount() {
-    this.props.actions.fetchUser(); // Fetches to determine auth status
+    this.props.actions.fetchUser();
   }
 
-  // Shows a Filter Bar
+  // Renders the Filter Bar
   renderFilterBar() {
     switch (this.props.oauth) {
       case null:
-        return <div className="filter-bar">Loading</div>;
+        return <div className="filter-bar">Loading...</div>;
       case false:
         // Returns if user is not logged in
         return (
@@ -48,7 +50,10 @@ class App extends Component {
                 <a className="log-btn" href="/api/googleLogin">
                   Sign Up
                 </a>
-                <button className="meme-btn" onClick={() => this.loginTestUser()}>
+                <button
+                  className="meme-btn"
+                  onClick={() => this.loginTestUser()}
+                >
                   TestUser
                 </button>
                 <a className="log-btn" href="/api/googleLogin">
@@ -70,6 +75,9 @@ class App extends Component {
               <img src={logoXs} alt="logo" />
             </div>
             <div className="filter-bar-right">
+              <button className="meme-btn" onClick={() => this.loadDemoMemes()}>
+                Load Demo
+              </button>
               <button className="meme-btn" onClick={() => this.toggleModal()}>
                 Add Memes!
               </button>
@@ -90,21 +98,37 @@ class App extends Component {
                 <h3>Filters: </h3>
                 <FilterBar />
               </div>
+              <div className="mobile-filter-bar-row">
+                <button className="meme-btn" onClick={() => this.loadDemoMemes()}>
+                  Demo Memes
+                </button>
+              </div>
             </div>
           </div>
         );
     }
   }
 
-  // Logs in the Test User
+  // Add Demo Memes 
+  loadDemoMemes() {
+    demo.map(meme => {
+      return this.props.actions.addMeme({
+        link: meme.link,
+        tags: meme.tags
+      });
+    });
+    this.props.actions.fetchMemes();
+  }
+
+  // Logs in the Test User and fetches their memes
   loginTestUser() {
     this.props.actions.loginDemo();
     this.props.actions.fetchMemes();
-    
   }
 
   // Verifies that link is an image, else will render a placeholder image.
   isImage(link) {
+    // Turns link into array to verify file type
     const linkArr = link.split(".");
     const linkEnding = linkArr[linkArr.length - 1];
     if (
@@ -126,13 +150,14 @@ class App extends Component {
     });
   }
 
-  // Deletes an Image
+  // Deletes an Image and refetches memes and tags.
   deleteImage = async imageId => {
     await this.props.actions.deleteMeme(imageId);
     this.props.actions.fetchMemes();
     this.props.actions.fetchTags();
   };
 
+  // Renders the App
   render() {
     return (
       <div className="App">

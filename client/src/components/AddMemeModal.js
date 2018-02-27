@@ -15,19 +15,23 @@ class AddMemeModal extends Component {
     return tagArr;
   }
 
+  // Handles onChange from inputs
   handleOnChange = e => {
     if (e.target.name === "tags") {
+      // Turn the tag string into an array and save as state.
       let arr = this.tagsIntoArray(e.target.value);
       this.setState({
         tags: arr
       });
     } else {
+      // All other inputs are set as a state variable.
       this.setState({
         [e.target.name]: e.target.value
       });
     }
   };
 
+  // Handles form submission.
   handleOnSubmit = e => {
     e.preventDefault();
     if (!!this.state.link) {
@@ -40,10 +44,11 @@ class AddMemeModal extends Component {
     this.props.toggleModal();
   };
 
-  componentWillUnmount(){
+  componentWillUnmount() {
     this.props.fetchMemes();
   }
 
+  // Renders the Add Meme Modal
   render() {
     return (
       <div className="modal-wrapper">

@@ -6,7 +6,11 @@
   justify-content: space-between;
   align-items: center;
   padding: 0 24px;
-  background-color: #2075b9;
+  background-color: color-list("primary");
+
+  @include media("<desktop"){
+    padding: 0; 
+  }
 
   @include media("<large"){
     height: 12%;
@@ -25,7 +29,11 @@
     
     h3 {
       padding-right: 24px;
-      color: #FFF;
+      color: color-list("text-light");
+
+      @include media(">large", "<desktop"){
+        margin-left: 12px;
+      }
     }
   }
 
@@ -78,14 +86,12 @@
         @include media("<large"){
           margin: 0;
           padding-right: 24px;
-          color: #FFF;
+          color: color-list("text-light");
         }
       }
     }
   }
 }
-
-
 
 .filter-selectors > select {
   margin-right: 24px;
@@ -97,20 +103,3 @@
     padding: 0.2em 0.4em;
   }
 }
-
-
-
-
-
-@media screen and (max-width: 800px) {
-  .mobile-filter-bar {
-    
-  }
-
-  
-
-  
-
-  
-}
-

@@ -5,8 +5,8 @@
   margin: 12px;
   display: flex;
   flex-direction: column;
-  background-color: rgb(240, 240, 240);
-  border: 1px solid rgb(187, 187, 187);
+  background-color: color-list("emphasis");
+  border: 1px solid color-list("borders");
   border-radius: 4px;
   
   a {
@@ -46,8 +46,8 @@
       margin-bottom: 0.4em;
       padding: 0.25em 0.5em;
       border-radius: 4px;
-      background-color: #2075b9;
-      color: #fff;
+      background-color: color-list("primary");
+      color: color-list("text-light");
     }
   }
 }

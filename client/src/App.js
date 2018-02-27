@@ -104,7 +104,7 @@ class App extends Component {
               </div>
               <div className="mobile-filter-bar-row">
                 <button className="meme-btn" onClick={() => this.loadDemoMemes()}>
-                  Demo Memes
+                  Load Demo
                 </button>
               </div>
             </div>

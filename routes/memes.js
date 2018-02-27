@@ -20,11 +20,15 @@ module.exports = app => {
       return res.status(401).send({ error: "Login required" });
     }
 
-    const meme = await new Meme({
-      link: req.body.link,
-      _user: req.user.id,
-      tags: req.body.tags
-    }).save();
+    const currentMeme = await Meme.find({ link: req.body.link, _user: req.user.id });
+    if(!currentMeme.length) {
+      const meme = await new Meme({
+        link: req.body.link,
+        _user: req.user.id,
+        tags: req.body.tags
+      }).save();
+    }
+
     res.send(req.user);
   });
 

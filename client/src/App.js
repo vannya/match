@@ -20,6 +20,10 @@ class App extends Component {
     this.props.actions.fetchUser();
   }
 
+  shouldComponentUpdate(prevProps, nextProps) {
+    return (this.props.memes !== prevProps.memes || !this.props.oauth !== prevProps.oauth);
+  }
+
   // Renders the Filter Bar
   renderFilterBar() {
     switch (this.props.oauth) {

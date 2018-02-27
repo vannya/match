@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "./AddMemeModal.css";
 
 class AddMemeModal extends Component {
   state = {

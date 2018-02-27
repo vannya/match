@@ -4,10 +4,9 @@ import * as actions from "./actions";
 import AddMemeModal from "./components/AddMemeModal";
 import MemeDisplay from "./components/MemeDisplay";
 import FilterBar from "./components/FilterBar";
-import placeholder from "./website.png";
-import logo from "./logo.png";
-import logoXs from "./logo-xs.png";
-import "./App.css";
+import placeholder from "./stylesheets/assets/website.png";
+import logo from "./stylesheets/assets/logo.png";
+import logoXs from "./stylesheets/assets/logo-xs.png";
 
 class App extends Component {
   state = {
@@ -38,7 +37,7 @@ class App extends Component {
             </div>
             <div className="filter-bar-right">
               <a className="log-btn" href="/api/googleLogin">
-                Sign Up
+                SignUp
               </a>
               <a className="log-btn" href="/api/googleLogin">
                 Login
@@ -49,6 +48,9 @@ class App extends Component {
                 <a className="log-btn" href="/api/googleLogin">
                   Sign Up
                 </a>
+                <button className="meme-btn" onClick={() => this.loginTestUser()}>
+                  TestUser
+                </button>
                 <a className="log-btn" href="/api/googleLogin">
                   Login
                 </a>
@@ -57,7 +59,6 @@ class App extends Component {
           </div>
         );
       default:
-        console.log("default")
         // Returns if user is logged in
         return (
           <div className="filter-bar">
@@ -99,6 +100,7 @@ class App extends Component {
   async loginTestUser() {
     await this.props.loginDemo();
     await this.props.fetchMemes();
+    
   }
 
   // Verifies that link is an image, else will render a placeholder image.

@@ -40,19 +40,20 @@ module.exports = app => {
   });
 
   // Fetches all distinct tags
-  app.get("/api/tags", async (req, res) => {
+  app.get("/api/tags", async (req, res) => { 
     if (!req.user) {
       return;
     };
-    const tags = await Meme.find({_user: req.user.id}).distinct("tags", function(err, result) {
+    const tags = await Meme.find({_user: req.user.id}).distinct("tags", function(err, res) {
       if (err) return handleError(err);
 
-      console.assert(Array.isArray(result));
-      return result;
+      console.assert(Array.isArray(res));
+      return res;
     });
     res.send(tags);
   });
 
+  // Searches based on tag choice
   app.get("/api/tags/:tag", async (req, res) => {
     if(!req.user) {
       return;

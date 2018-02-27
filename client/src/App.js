@@ -21,7 +21,7 @@ class App extends Component {
   }
 
   shouldComponentUpdate(prevProps, nextProps) {
-    return (this.props.memes !== prevProps.memes || !this.props.oauth !== prevProps.oauth);
+    return true;
   }
 
   // Renders the Filter Bar

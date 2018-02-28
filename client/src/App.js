@@ -20,10 +20,6 @@ class App extends Component {
     this.props.actions.fetchUser();
   }
 
-  shouldComponentUpdate(prevProps, nextProps) {
-    return true;
-  }
-
   // Renders the Filter Bar
   renderFilterBar() {
     switch (this.props.oauth) {
@@ -114,7 +110,7 @@ class App extends Component {
   }
 
   // Add Demo Memes 
-  loadDemoMemes() {
+  loadDemoMemes = () => {
     demo.map(meme => {
       return this.props.actions.addMeme({
         link: meme.link,
@@ -126,9 +122,9 @@ class App extends Component {
   }
 
   // Logs in the Test User and fetches their memes
-  loginTestUser() {
-    this.props.actions.loginDemo();
-    this.props.actions.fetchMemes();
+  async loginTestUser() {
+    await this.props.actions.loginDemo();
+    await this.props.actions.fetchMemes();
   }
 
   // Verifies that link is an image, else will render a placeholder image.

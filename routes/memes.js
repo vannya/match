@@ -6,7 +6,7 @@ module.exports = app => {
   // Returns all of a user's memes
   app.get("/api/memes", async (req, res) => {
     if (!req.user) {
-      return;
+      return res.status(401).send({ error: "Login required" });
     }
     const memes = await Meme.find({ _user: req.user.id });
 
@@ -50,7 +50,7 @@ module.exports = app => {
   // Fetches all distinct tags
   app.get("/api/tags", async (req, res) => {
     if (!req.user) {
-      return;
+      return res.status(401).send({ error: "Login required" });
     }
     const tags = await Meme.find({ _user: req.user.id }).distinct(
       "tags",
@@ -67,7 +67,7 @@ module.exports = app => {
   // Searches based on tag choice
   app.get("/api/tags/:tag", async (req, res) => {
     if (!req.user) {
-      return;
+      return res.status(401).send({ error: "Login required" });
     }
 
     if (req.params.tag === "all") {

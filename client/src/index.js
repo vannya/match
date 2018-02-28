@@ -8,7 +8,7 @@ import reducers from "./reducers";
 import App from "./App";
 import "./stylesheets/main.css";
 
-LogRocket.init('sr59gr/match');
+LogRocket.init('tsfljv/match-ufi2i');
 const store = createStore(reducers, {}, applyMiddleware(thunk));
 
 

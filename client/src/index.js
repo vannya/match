@@ -9,7 +9,7 @@ import App from "./App";
 import "./stylesheets/main.css";
 
 LogRocket.init('tsfljv/match-ufi2i');
-const store = createStore(reducers, {}, applyMiddleware(thunk));
+const store = createStore(reducers, {}, applyMiddleware(thunk, LogRocket.reduxMiddleware()));
 
 
 ReactDOM.render(

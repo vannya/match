@@ -1,0 +1,35 @@
+/* Creates a Red Btn with White Text */
+.red-btn {
+  background-color: color-list("accent");
+  color: color-list("text-light");
+}
+
+/* Creates a larger Red Btn with White Text */
+.meme-btn {
+  margin: 10px 12px;
+  background-color: color-list("accent");
+  color: color-list("text-light");
+  font-weight: 700;
+  font-size: 16px;
+  width: 125px;
+}
+
+/* Creates a Gray Btn with White Text */
+.log-btn {
+  margin: 0 12px;
+  width: 125px;
+  padding: 6px 0;
+  border-radius: 4px;
+  border: none;
+  background-color: color-list("text-muted");
+  color: color-list("text-dark");
+  text-decoration: none;
+  text-align: center;
+  outline: none;
+  cursor: pointer;
+}
+
+/* Creates a Light Btn with White Text */
+.meme-display-btn {
+  width: 80px;
+}

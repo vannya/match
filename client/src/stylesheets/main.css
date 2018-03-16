@@ -458,55 +458,74 @@ button {
       max-width: 538px;
       height: auto; }
 
-/* Creates a Red Btn with White Text */
-.red-btn {
-  background-color: #e61b2c;
-  color: #ffffff; }
+.header .desktop-header {
+  height: 8%;
+  min-height: 64px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 24px; }
+  @media (max-width: 1023px) {
+    .header .desktop-header {
+      padding: 0; } }
+  @media (max-width: 899px) {
+    .header .desktop-header {
+      height: 12%;
+      min-height: 140px; } }
+  @media (max-width: 899px) {
+    .header .desktop-header {
+      display: none; } }
+  .header .desktop-header .header-left {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 33%; }
+    @media (max-width: 899px) {
+      .header .desktop-header .header-left {
+        display: none; } }
+    .header .desktop-header .header-left h3 {
+      padding-right: 24px;
+      color: #ffffff; }
 
-/* Creates a larger Red Btn with White Text */
-.meme-btn {
-  margin-left: 12px;
-  background-color: #e61b2c;
-  color: #ffffff;
-  font-weight: 700;
-  font-size: 16px; }
+@media (min-width: 901px) and (max-width: 1023px) {
+  .header .desktop-header .header-left h3 {
+    margin-left: 12px; } }
+  .header .desktop-header .header-middle {
+    display: flex;
+    align-items: center; }
+    @media (max-width: 899px) {
+      .header .desktop-header .header-middle {
+        display: none; } }
+  .header .desktop-header .header-right {
+    width: 33%;
+    display: flex;
+    justify-content: flex-end; }
+    @media (max-width: 899px) {
+      .header .desktop-header .header-right {
+        display: none; } }
 
-@media (max-width: 1119px) and (min-width: 821px) {
-  .meme-btn {
-    margin-left: 10px;
-    font-size: 14px; } }
-
-@media (max-width: 1023px) and (min-width: 821px) {
-  .meme-btn {
-    margin-left: 8px;
-    font-size: 12px; } }
-
-/* Creates a Gray Btn with White Text */
-.log-btn {
-  margin: 0 12px;
-  padding: 0.4em 0.4em;
-  border-radius: 4px;
-  border: none;
-  background-color: #dcdcdc;
-  color: #000000;
-  text-decoration: none;
-  text-align: center;
-  outline: none;
-  cursor: pointer; }
-
-@media (max-width: 1119px) and (min-width: 821px) {
-  .log-btn {
-    margin-left: 10px;
-    font-size: 14px; } }
-
-@media (max-width: 1023px) and (min-width: 821px) {
-  .log-btn {
-    margin-left: 8px;
-    font-size: 12px; } }
-
-/* Creates a Light Btn with White Text */
-.meme-display-btn {
-  width: 80px; }
+.header .mobile-header {
+  display: none; }
+  @media (max-width: 899px) {
+    .header .mobile-header {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center; } }
+  @media (max-width: 899px) {
+    .header .mobile-header .mobile-header-row {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      height: 50%; } }
+  @media (max-width: 899px) {
+    .header .mobile-header .mobile-header-row h3 {
+      margin: 0;
+      padding-right: 24px;
+      color: #ffffff; } }
 
 .modal-wrapper {
   position: absolute;
@@ -529,7 +548,7 @@ button {
     background-color: #ffffff;
     border-radius: 4px;
     animation: slideInTop 0.8s ease both; }
-    @media (max-width: 819px) {
+    @media (max-width: 899px) {
       .modal-wrapper .add-image-modal {
         margin: 0 auto;
         padding: 1em 2em; } }
@@ -540,7 +559,7 @@ button {
         padding: 1em 2em; } }
     .modal-wrapper .add-image-modal h2 {
       text-align: center; }
-      @media (max-width: 819px) {
+      @media (max-width: 899px) {
         .modal-wrapper .add-image-modal h2 {
           width: 100%;
           font-size: 1.2em;
@@ -554,7 +573,7 @@ button {
       .modal-wrapper .add-image-modal form input {
         margin-bottom: 12px;
         width: 100%; }
-        @media (max-width: 819px) {
+        @media (max-width: 899px) {
           .modal-wrapper .add-image-modal form input {
             margin-bottom: 12px;
             width: 100%; } }
@@ -571,84 +590,49 @@ button {
     opacity: 1;
     transform: translateY(120px); } }
 
-.filter-bar {
-  height: 8%;
-  min-height: 64px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 24px; }
-  @media (max-width: 1023px) {
-    .filter-bar {
-      padding: 0; } }
-  @media (max-width: 819px) {
-    .filter-bar {
-      height: 12%;
-      min-height: 140px; } }
-  .filter-bar .filter-bar-left {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    width: 33%; }
-    @media (max-width: 819px) {
-      .filter-bar .filter-bar-left {
-        display: none; } }
-    .filter-bar .filter-bar-left h3 {
-      padding-right: 24px;
-      color: #ffffff; }
+/* Creates a Red Btn with White Text */
+.red-btn {
+  background-color: #e61b2c;
+  color: #ffffff; }
 
-@media (min-width: 821px) and (max-width: 1023px) {
-  .filter-bar .filter-bar-left h3 {
-    margin-left: 12px; } }
-  .filter-bar .filter-bar-center {
-    display: flex;
-    align-items: center; }
-    @media (max-width: 819px) {
-      .filter-bar .filter-bar-center {
-        display: none; } }
-  .filter-bar .filter-bar-right {
-    width: 33%;
-    display: flex;
-    justify-content: flex-end; }
-    @media (max-width: 819px) {
-      .filter-bar .filter-bar-right {
-        display: none; } }
-  .filter-bar .mobile-filter-bar {
-    display: none; }
-    @media (max-width: 819px) {
-      .filter-bar .mobile-filter-bar {
-        height: 100%;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center; } }
-    @media (max-width: 819px) {
-      .filter-bar .mobile-filter-bar .mobile-filter-bar-top {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center; } }
-    @media (max-width: 819px) {
-      .filter-bar .mobile-filter-bar .mobile-filter-bar-row {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        height: 50%; } }
-    @media (max-width: 819px) {
-      .filter-bar .mobile-filter-bar .mobile-filter-bar-row h3 {
-        margin: 0;
-        padding-right: 24px;
-        color: #ffffff; } }
-
-.filter-selectors > select {
-  margin-right: 24px;
-  padding: 0.2em 0.4em;
+/* Creates a larger Red Btn with White Text */
+.meme-btn {
+  margin: 10px 12px;
+  background-color: #e61b2c;
+  color: #ffffff;
+  font-weight: 700;
   font-size: 16px;
-  border-radius: 4px; }
-  .filter-selectors > select option {
-    padding: 0.2em 0.4em; }
+  width: 125px; }
+
+/* Creates a Gray Btn with White Text */
+.log-btn {
+  margin: 0 12px;
+  width: 125px;
+  padding: 6px 0;
+  border-radius: 4px;
+  border: none;
+  background-color: #dcdcdc;
+  color: #000000;
+  text-decoration: none;
+  text-align: center;
+  outline: none;
+  cursor: pointer; }
+
+/* Creates a Light Btn with White Text */
+.meme-display-btn {
+  width: 80px; }
+
+.filter-selectors {
+  display: flex;
+  align-items: center; }
+  .filter-selectors select {
+    padding: 0.2em 0.4em;
+    font-size: 16px;
+    border-radius: 4px;
+    width: 125px;
+    margin: 10px 12px; }
+    .filter-selectors select option {
+      padding: 0.2em 0.4em; }
 
 .meme-display {
   position: relative;

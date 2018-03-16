@@ -3,6 +3,7 @@
   width: 220px;
   padding: 12px;
   margin: 12px;
+  max-height: 500px;
   display: flex;
   flex-direction: column;
   background-color: color-list("emphasis");
@@ -38,8 +39,10 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    margin-bottom: 50px;
     justify-content: center;
-    padding: 0 0 60px 0;
+    overflow: auto;
+    max-height: 125px;
     
     .tag-item {
       margin-right: 0.4em;

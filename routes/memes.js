@@ -19,10 +19,12 @@ module.exports = app => {
       return res.status(401).send({ error: "Login required" });
     }
 
+    let tags = req.body.tags.filter(tag => tag !== "");
+
     const meme = {
       link: req.body.link,
       _user: req.user.id,
-      tags: req.body.tags
+      tags: tags
     };
 
     await Meme.findOneAndUpdate(

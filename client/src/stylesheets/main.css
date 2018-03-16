@@ -655,6 +655,7 @@ button {
   width: 220px;
   padding: 12px;
   margin: 12px;
+  max-height: 500px;
   display: flex;
   flex-direction: column;
   background-color: #f0f0f0;
@@ -681,8 +682,10 @@ button {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    margin-bottom: 50px;
     justify-content: center;
-    padding: 0 0 60px 0; }
+    overflow: auto;
+    max-height: 125px; }
     .meme-display .tag-boxes .tag-item {
       margin-right: 0.4em;
       margin-bottom: 0.4em;

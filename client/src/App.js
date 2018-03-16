@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as actions from "./actions";
-import AddMemeModal from "./components/AddMemeModal";
+import AddEditMemeModal from "./components/AddEditMemeModal";
 import MemeDisplay from "./components/MemeDisplay";
 import FilterBar from "./components/FilterBar";
 import placeholder from "./stylesheets/assets/website.png";
@@ -12,7 +12,9 @@ import demo from "./demo-data.json";
 
 class App extends Component {
   state = {
-    modalShowing: false
+    modalShowing: false,
+    modalType: "add",
+    memeToEdit: ""
   };
 
   // Fetches to determine auth status
@@ -78,7 +80,7 @@ class App extends Component {
               <button className="meme-btn" onClick={() => this.loadDemoMemes()}>
                 Load Demo
               </button>
-              <button className="meme-btn" onClick={() => this.toggleModal()}>
+              <button className="meme-btn" onClick={() => this.toggleModal("add")}>
                 Add Memes!
               </button>
               <a className="log-btn" href="/api/logout">
@@ -87,7 +89,7 @@ class App extends Component {
             </div>
             <div className="mobile-filter-bar">
               <div className="mobile-filter-bar-row">
-                <button className="meme-btn" onClick={() => this.toggleModal()}>
+                <button className="meme-btn" onClick={() => this.toggleModal("add")}>
                   Add Memes!
                 </button>
                 <a className="log-btn" href="/api/logout">
@@ -145,9 +147,11 @@ class App extends Component {
   }
 
   // Toggles the AddImageModal
-  toggleModal() {
+  toggleModal(type, meme) {
     this.setState({
-      modalShowing: !this.state.modalShowing
+      modalShowing: !this.state.modalShowing,
+      modalType: type,
+      memeToEdit: meme || null
     });
   }
 
@@ -156,6 +160,7 @@ class App extends Component {
     await this.props.actions.deleteMeme(imageId);
     this.props.actions.fetchMemes();
     this.props.actions.fetchTags();
+    this.toggleModal(null);
   };
 
   // Renders the App
@@ -175,6 +180,7 @@ class App extends Component {
                     linkId={meme._id}
                     deleteImage={this.deleteImage}
                     tags={meme.tags}
+                    toggleModal={() => this.toggleModal("edit", meme)}
                   />
                 );
               })}
@@ -191,11 +197,14 @@ class App extends Component {
           )}
         </div>
         {!!this.state.modalShowing ? (
-          <AddMemeModal
-            toggleModal={() => this.toggleModal()}
+          <AddEditMemeModal
+            meme={this.state.memeToEdit}
+            toggleModal={() => this.toggleModal(null)}
             addMeme={this.props.actions.addMeme}
             fetchMemes={() => this.props.actions.fetchMemes()}
             fetchTags={() => this.props.actions.fetchTags()}
+            modalType={this.state.modalType}
+            deleteMeme={() => this.deleteImage(this.state.memeToEdit._id)}
           />
         ) : null}
       </div>

@@ -5,8 +5,8 @@ import * as actions from "./actions";
 import logo from "./stylesheets/assets/logo.png";
 
 import HeaderContainer from "./components/Header/HeaderContainer";
+import AddEditModalContainer from "./components/AddEditModal/AddEditModalContainer";
 
-import AddEditMemeModal from "./components/AddEditMemeModal";
 import MemeDisplay from "./components/MemeDisplay";
 import placeholder from "./stylesheets/assets/website.png";
 
@@ -39,7 +39,7 @@ class App extends Component {
     }
   }
 
-  // Toggles the AddImageModal
+  // Toggles the AddEditModal
   toggleModal(type, meme) {
     this.setState({
       modalShowing: !this.state.modalShowing,
@@ -47,14 +47,6 @@ class App extends Component {
       memeToEdit: meme || null
     });
   }
-
-  // Deletes an Image and refetches memes and tags.
-  deleteImage = async imageId => {
-    await this.props.actions.deleteMeme(imageId);
-    this.props.actions.fetchMemes();
-    this.props.actions.fetchTags();
-    this.toggleModal(null);
-  };
 
   // Renders the App
   render() {
@@ -90,14 +82,10 @@ class App extends Component {
           )}
         </div>
         {!!this.state.modalShowing ? (
-          <AddEditMemeModal
+          <AddEditModalContainer
             meme={this.state.memeToEdit}
-            toggleModal={() => this.toggleModal(null)}
-            addMeme={this.props.actions.addMeme}
-            fetchMemes={() => this.props.actions.fetchMemes()}
-            fetchTags={() => this.props.actions.fetchTags()}
             modalType={this.state.modalType}
-            deleteMeme={() => this.deleteImage(this.state.memeToEdit._id)}
+            toggleModal={() => this.toggleModal(null)}
           />
         ) : null}
       </div>

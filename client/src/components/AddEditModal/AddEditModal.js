@@ -40,7 +40,7 @@ const AddEditModal = ({
       return (
         <div className="modal-edit-buttons">
           <Button type="button" className="red-btn" text="Delete" onClick={deleteMeme} />
-          <Button type="submit" text="Submit" />
+          <Button type="submit" className="meme-display-btn" text="Submit" />
         </div>
       );
     }

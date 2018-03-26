@@ -41,7 +41,6 @@ class AddEditModalContainer extends Component {
    * Handles onChange from inputs
    */
   handleOnChange = async e => {
-    const { modalType, addMeme } = this.props;
     let tags = this.state.tags.slice();
     let link = this.state.link;
 

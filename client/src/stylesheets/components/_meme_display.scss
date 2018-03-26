@@ -6,9 +6,14 @@
   max-height: 500px;
   display: flex;
   flex-direction: column;
-  background-color: color-list("emphasis");
   border: 1px solid color-list("borders");
   border-radius: 4px;
+
+  @include themify($themes) {
+    background-color: themed("memeDisplayBackground");
+    color: themed("memeDisplayText");
+    border: 1px solid themed("borders");
+  }
   
   a {
     img {
@@ -21,6 +26,11 @@
   input {
     line-height: 20px;
     font-size: 16px;
+    @include themify($themes) {
+      background: themed("inputBackground");
+      border: 1px solid themed("inputBorder");
+      color: themed("inputText");
+    }
   }
   
   .btn-box {
@@ -31,8 +41,11 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    border-top: 1px solid color-list("borders");
     padding-top: 8px;
+    @include themify($themes) {
+      border: 1px solid themed("borders");
+    }
+    
   }
   
   .tag-boxes {
@@ -49,8 +62,14 @@
       margin-bottom: 0.4em;
       padding: 0.25em 0.5em;
       border-radius: 4px;
-      background-color: color-list("primary");
+      background-color: color-list("tags");
       color: color-list("text-light");
+
+      @include themify($themes) {
+        background-color: themed("tagBackground");
+        color: themed("tagText");
+        
+      }
     }
   }
 }

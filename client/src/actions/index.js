@@ -1,5 +1,5 @@
 import axios from "axios";
-import { FETCH_USER, FETCH_MEMES, FETCH_TAGS } from "./types";
+import { FETCH_USER, FETCH_MEMES, FETCH_TAGS, SET_CURRENT_MEME } from "./types";
 
 // Fetches Current User
 export const fetchUser = () => async dispatch => {
@@ -53,4 +53,10 @@ export const searchTag = (tag) => async dispatch => {
   const res = await axios.get(`/api/tags/${tag}`);
 
   dispatch({ type: FETCH_MEMES, payload: res.data});
+}
+
+export const setCurrentMeme = (meme) => async dispatch => {
+  console.log(meme)
+
+  dispatch({type: SET_CURRENT_MEME, payload: meme});
 }

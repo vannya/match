@@ -408,10 +408,7 @@ body, button {
 body {
   margin: 0;
   padding: 0;
-  min-height: 100vh;
-  background: #2075b9;
-  background: -webkit-linear-gradient(to right, #213657, #2075b9);
-  background: linear-gradient(to right, #213657, #2075b9); }
+  min-height: 100vh; }
 
 input {
   padding: 0.4em;
@@ -429,11 +426,19 @@ button {
     cursor: pointer; }
 
 .App {
-  max-height: 100vh;
+  height: 100vh;
   width: 100%;
   display: flex;
   flex-direction: column;
   overflow: auto; }
+  .theme-main .App {
+    background: #3F88C5;
+    background: -webkit-linear-gradient(to right, #3F88C5, #44BBA4);
+    background: linear-gradient(to right, #3F88C5, #44BBA4); }
+  .theme-dark .App {
+    background: #232629;
+    background: -webkit-linear-gradient(to right, #232629, #232629);
+    background: linear-gradient(to right, #232629, #232629); }
 
 .app-body {
   min-height: 92%;
@@ -445,18 +450,6 @@ button {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center; }
-  .app-body .basic-landing {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: #FFF;
-    text-align: center; }
-    .app-body .basic-landing img {
-      width: 80%;
-      max-width: 538px;
-      height: auto; }
 
 .header .desktop-header {
   height: 8%;
@@ -545,9 +538,14 @@ button {
     margin: 0 auto;
     padding: 1em 3em;
     width: 400px;
-    background-color: #ffffff;
     border-radius: 4px;
     animation: slideInTop 0.8s ease both; }
+    .theme-main .modal-wrapper .add-image-modal {
+      background-color: #FFFFFF;
+      color: #000000; }
+    .theme-dark .modal-wrapper .add-image-modal {
+      background-color: #232629;
+      color: #FFFFFF; }
     @media (max-width: 899px) {
       .modal-wrapper .add-image-modal {
         margin: 0 auto;
@@ -582,6 +580,14 @@ button {
       .modal-wrapper .add-image-modal form input {
         margin-bottom: 12px;
         width: 100%; }
+        .theme-main .modal-wrapper .add-image-modal form input {
+          background: #FFFFFF;
+          border: 1px solid #bbbbbb;
+          color: #000000; }
+        .theme-dark .modal-wrapper .add-image-modal form input {
+          background: #232629;
+          border: 1px solid #FFFFFF;
+          color: #FFFFFF; }
         @media (max-width: 899px) {
           .modal-wrapper .add-image-modal form input {
             margin-bottom: 12px;
@@ -599,37 +605,53 @@ button {
     opacity: 1;
     transform: translateY(120px); } }
 
-/* Creates a Red Btn with White Text */
-.red-btn {
-  background-color: #e61b2c;
+/* Creates a Delete Btn with White Text */
+.theme-main .red-btn {
+  background-color: #FF715B;
   color: #ffffff; }
 
-/* Creates a larger Red Btn with White Text */
+.theme-dark .red-btn {
+  background-color: #921611;
+  color: #ffffff; }
+
+/* Creates a larger Header Button with Text */
 .meme-btn {
   margin: 10px 12px;
-  background-color: #e61b2c;
-  color: #ffffff;
   font-weight: 700;
   font-size: 16px;
   width: 125px; }
+  .theme-main .meme-btn {
+    background-color: #FF715B;
+    color: #ffffff; }
+  .theme-dark .meme-btn {
+    background-color: #2d5c76;
+    color: #ffffff; }
 
-/* Creates a Gray Btn with White Text */
-.log-btn {
-  margin: 0 12px;
-  width: 125px;
-  padding: 6px 0;
-  border-radius: 4px;
-  border: none;
-  background-color: #dcdcdc;
-  color: #000000;
-  text-decoration: none;
-  text-align: center;
-  outline: none;
-  cursor: pointer; }
-
-/* Creates a Light Btn with White Text */
+/* Creates a Primary Btn with White Text */
 .meme-display-btn {
   width: 80px; }
+  .theme-main .meme-display-btn {
+    background-color: #3F88C5;
+    color: #ffffff; }
+  .theme-dark .meme-display-btn {
+    background-color: #2d5c76;
+    color: #ffffff; }
+
+.landing {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center; }
+  .theme-main .landing {
+    color: #FFFFFF; }
+  .theme-dark .landing {
+    color: #FFFFFF; }
+  .landing img {
+    width: 80%;
+    max-width: 538px;
+    height: auto; }
 
 .filter-selectors {
   display: flex;
@@ -651,9 +673,16 @@ button {
   max-height: 500px;
   display: flex;
   flex-direction: column;
-  background-color: #f0f0f0;
   border: 1px solid #bbbbbb;
   border-radius: 4px; }
+  .theme-main .meme-display {
+    background-color: #f0f0f0;
+    color: #000000;
+    border: 1px solid #bbbbbb; }
+  .theme-dark .meme-display {
+    background-color: #181515;
+    color: #FFFFFF;
+    border: 1px solid #181515; }
   .meme-display a img {
     height: 194px;
     width: 194px;
@@ -661,6 +690,14 @@ button {
   .meme-display input {
     line-height: 20px;
     font-size: 16px; }
+    .theme-main .meme-display input {
+      background: #f0f0f0;
+      border: 1px solid #bbbbbb;
+      color: #000000; }
+    .theme-dark .meme-display input {
+      background: #181515;
+      border: 1px solid #FFFFFF;
+      color: #FFFFFF; }
   .meme-display .btn-box {
     position: absolute;
     width: 100%;
@@ -669,8 +706,11 @@ button {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    border-top: 1px solid #bbbbbb;
     padding-top: 8px; }
+    .theme-main .meme-display .btn-box {
+      border: 1px solid #bbbbbb; }
+    .theme-dark .meme-display .btn-box {
+      border: 1px solid #181515; }
   .meme-display .tag-boxes {
     display: flex;
     flex-direction: row;
@@ -684,5 +724,11 @@ button {
       margin-bottom: 0.4em;
       padding: 0.25em 0.5em;
       border-radius: 4px;
-      background-color: #2075b9;
+      background-color: #119DA4;
       color: #ffffff; }
+      .theme-main .meme-display .tag-boxes .tag-item {
+        background-color: #119DA4;
+        color: #FFFFFF; }
+      .theme-dark .meme-display .tag-boxes .tag-item {
+        background-color: #921611;
+        color: #FFFFFF; }

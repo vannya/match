@@ -6,37 +6,20 @@ import logo from "./stylesheets/assets/logo.png";
 
 import HeaderContainer from "./components/Header/HeaderContainer";
 import AddEditModalContainer from "./components/AddEditModal/AddEditModalContainer";
-
-import MemeDisplay from "./components/MemeDisplay";
-import placeholder from "./stylesheets/assets/website.png";
+import Landing from "./components/Landing/Landing";
+import MemeBoard from "./components/MemeBoard/MemeBoard";
 
 class App extends Component {
   state = {
     modalShowing: false,
     modalType: "add",
-    memeToEdit: ""
+    memeToEdit: "",
+    theme: "theme-main"
   };
 
   // Fetches to determine auth status
   componentDidMount() {
-    this.props.actions.fetchUser();
-  }
-
-  // Verifies that link is an image, else will render a placeholder image.
-  isImage(link) {
-    // Turns link into array to verify file type
-    const linkArr = link.split(".");
-    const linkEnding = linkArr[linkArr.length - 1];
-    if (
-      linkEnding === "jpg" ||
-      linkEnding === "jpeg" ||
-      linkEnding === "png" ||
-      linkEnding === "gif"
-    ) {
-      return true;
-    } else {
-      return false;
-    }
+    this.props.fetchUser();
   }
 
   // Toggles the AddEditModal
@@ -51,34 +34,20 @@ class App extends Component {
   // Renders the App
   render() {
     return (
+      <div className={this.state.theme}>
       <div className="App">
-        <HeaderContainer openAddModal={() => this.toggleModal("add", null)} closeAddModal={() => this.toggleModal(null)} />
+        <HeaderContainer
+          openAddModal={() => this.toggleModal("add", null)}
+          closeAddModal={() => this.toggleModal(null)}
+        />
         <div className="app-body">
           {!!this.props.memes ? (
-            <div className="memes-list">
-              {this.props.memes.map((meme, i) => {
-                return (
-                  <MemeDisplay
-                    key={i}
-                    imgSrc={this.isImage(meme.link) ? meme.link : placeholder}
-                    link={meme.link}
-                    linkId={meme._id}
-                    deleteImage={this.deleteImage}
-                    tags={meme.tags}
-                    toggleModal={() => this.toggleModal("edit", meme)}
-                  />
-                );
-              })}
-            </div>
+            <MemeBoard
+              toggleModal={() => this.toggleModal("edit", this.props.currentMeme)}
+              memes={this.props.memes}
+            />
           ) : (
-            <div className="basic-landing">
-              <img className="large-logo" src={logo} alt="logo" />
-              <h2>Memes for your teams!</h2>
-              <p>
-                When you can only express yourself via meme, have your favorites
-                at your fingertips.
-              </p>
-            </div>
+            <Landing logo={logo} />
           )}
         </div>
         {!!this.state.modalShowing ? (
@@ -89,18 +58,13 @@ class App extends Component {
           />
         ) : null}
       </div>
+      </div>
     );
   }
 }
 
-function mapStateToProps({ oauth, memes, tags }) {
-  return { oauth, memes, tags };
+function mapStateToProps({ oauth, memes, tags, currentMeme }) {
+  return { oauth, memes, tags, currentMeme };
 }
 
-const mapDispatchToProps = dispatch => {
-  return {
-    actions: bindActionCreators(actions, dispatch)
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, actions)(App);

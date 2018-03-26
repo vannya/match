@@ -11,10 +11,11 @@ $base-font-weight: 400;
 /// Color Map
 /// @type List
 $color-list: (
-	'primary': #2075b9, 
-	'primary-gradient': #213657,  
-	'accent': #e61b2c,
-	'emphasis': #f0f0f0,
+	'primary': #3F88C5, 
+	'primary-gradient': #44BBA4,  
+	'accent': #FF715B,
+	'tags': #119DA4,
+	'meme-display': #f0f0f0,
 	'borders': #bbbbbb,
 	'text-light': #ffffff,
 	'text-dark': #000000,
@@ -44,3 +45,51 @@ $max-width: 1180px !default;
 /// @example scss - When using a CDN
 ///   $base-url: 'http://cdn.example.com/assets/';
 $base-url: '/assets/' !default;
+
+// Color Themes
+$themes: (
+  main: (
+    primary: #3F88C5,
+    gradientLeft: #3F88C5,
+    gradientRight: #44BBA4,
+    headerButton: #FF715B,
+    tagBackground: #119DA4,
+    tagText: #FFFFFF,
+    memeDisplayBackground: #f0f0f0,
+    memeDisplayText: #000000,
+    inputBackground: #f0f0f0,
+    inputBorder: #bbbbbb,
+    inputText: #000000,
+    modalBackground: #FFFFFF,
+    modalText: #000000,
+    landingText: #FFFFFF,
+    buttonColor: #3F88C5,
+    deleteButton: #FF715B,
+    borders: #bbbbbb,
+    textLight: #ffffff,
+    textDark: #000000,
+    textMuted: #dcdcdc,
+  ),
+  dark: (
+    primary: #232629,
+    gradientLeft: #232629,
+    gradientRight: #232629,
+    headerButton: #2d5c76,
+    tagBackground: #921611,
+    tagText: #FFFFFF,
+    memeDisplayBackground: #181515,
+    memeDisplayText: #FFFFFF,
+    inputBackground: #181515,
+    inputBorder: #FFFFFF,
+    inputText: #FFFFFF,
+    modalBackground: #232629,
+    modalText: #FFFFFF,
+    landingText: #FFFFFF,
+    buttonColor: #2d5c76,
+    deleteButton: #921611,
+    borders: #181515,
+    textLight: #ffffff,
+    textDark: #000000,
+    textMuted: #dcdcdc,
+  ),
+);

@@ -14,10 +14,7 @@ const Header = ({oauth, loadDemoMemes, openAddModal, loginTestUser}) => {
       return (
         <div className="header">
           <div className="desktop-header">
-            <div className="header-left">
-              <Button type="button" className="meme-btn" onClick={loginTestUser} text="TestUser" />
-            </div>
-            <div className="header-middle"><img src={logo} alt="Logo" /></div>
+            <div className="header-left"><img src={logo} alt="Logo" /></div>
             <div className="header-right">
               <LinkButton link="/api/googleLogin"><Button type="button" className="meme-btn" text="SignUp" /></LinkButton>
               <LinkButton link="/api/googleLogin"><Button type="button" className="meme-btn" text="Login" /></LinkButton>
@@ -30,12 +27,13 @@ const Header = ({oauth, loadDemoMemes, openAddModal, loginTestUser}) => {
       return (
         <div className="header">
           <div className="desktop-header">
-            <div className="header-left"><Button type="button" className="meme-btn" onClick={() => loadDemoMemes()} text="Load Demo" />
-            <Button type="button" className="meme-btn" onClick={openAddModal} text="Add Memes!" /></div>
-            <div className="header-middle"><img src={logo} alt="Logo" /></div>
-            <div className="header-right">   
-              <FilterBar />
-              <LinkButton link="/api/logout"><Button type="button" className="meme-btn" text="Logout" /></LinkButton>
+            <div className="header-left">
+              <img src={logo} alt="Logo" />
+            </div>
+              <div className="header-right">   
+                <FilterBar />
+                <Button type="button" className="meme-btn" onClick={openAddModal} text="Add Memes!" />
+                <LinkButton link="/api/logout"><Button type="button" className="meme-btn" text="Logout" /></LinkButton>
             </div>
           </div>
         </div>

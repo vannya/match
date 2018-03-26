@@ -47,10 +47,10 @@ const MobileHeader = ({
         <div className="header">
           <div className="mobile-header">
             <div className="mobile-header-row">
+              <img src={logo} alt="Logo" />
+            </div>
+            <div className="mobile-header-row">
               <FilterBar />
-              <LinkButton link="/api/logout">
-                <Button type="button" className="meme-btn" text="Logout" />
-              </LinkButton>
             </div>
             <div className="mobile-header-row">
               <Button
@@ -59,12 +59,9 @@ const MobileHeader = ({
                 onClick={openAddModal}
                 text="Add Memes!"
               />
-              <Button
-                type="button"
-                className="meme-btn"
-                onClick={() => loadDemoMemes()}
-                text="Load Demo"
-              />
+              <LinkButton link="/api/logout">
+                <Button type="button" className="meme-btn" text="Logout" />
+              </LinkButton>
             </div>
           </div>
         </div>

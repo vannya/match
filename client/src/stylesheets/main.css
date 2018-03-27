@@ -531,7 +531,7 @@ button {
     position: absolute;
     right: 0;
     top: 0;
-    width: 350px;
+    width: 300px;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -554,6 +554,21 @@ button {
         border-bottom: 1px solid #FFFFFF; }
     .slide-menu-wrapper .slide-menu h3 {
       margin: 10px 0; }
+    .slide-menu-wrapper .slide-menu .signature {
+      position: absolute;
+      bottom: 30px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      font-size: 18px;
+      font-weight: 700; }
+      .theme-main .slide-menu-wrapper .slide-menu .signature a {
+        color: #FF715B; }
+      .theme-dark .slide-menu-wrapper .slide-menu .signature a {
+        color: #921611; }
     .slide-menu-wrapper .slide-menu a {
       text-decoration: none; }
       .theme-main .slide-menu-wrapper .slide-menu a {

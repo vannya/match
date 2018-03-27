@@ -35,7 +35,7 @@ const AddEditModal = ({
 
   function renderButtons() {
     if (modalType === "add") {
-      return <Button type="submit" text="Submit" />;
+      return <Button type="submit" className="meme-display-btn" text="Submit" />;
     } else if (modalType === "edit") {
       return (
         <div className="modal-edit-buttons">

@@ -17,7 +17,7 @@
     position: absolute;
     right: 0;
     top: 0;
-    width: 350px;
+    width: 300px;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -42,6 +42,25 @@
       margin: 10px 0;
     }
 
+    .signature {
+      position: absolute;
+      bottom: 30px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      font-size: 18px;
+      font-weight: 700;
+
+      a {
+        @include themify {
+          color: themed("linkColor");
+        }
+      }
+    } 
+
     a {
       text-decoration: none;
       @include themify {
@@ -51,6 +70,7 @@
 
   }
 }
+
 
 
 .slide-menu-hidden {

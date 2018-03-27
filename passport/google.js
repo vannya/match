@@ -34,7 +34,8 @@ passport.use(
       } else {
         //Record not found
         const user = await new User({
-          googleId: profile.id
+          googleId: profile.id,
+          theme: "main"
         }).save();
         done(null, user);
       }

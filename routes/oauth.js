@@ -1,4 +1,6 @@
 const passport = require("passport");
+const mongoose = require("mongoose");
+const User = mongoose.model("users");
 
 module.exports = app => {
 
@@ -30,24 +32,44 @@ module.exports = app => {
     res.redirect("/");
   });
 
-  // Test User Login for Match demonstration purposes
-  app.post("/api/testUser", function(req, res, next) {
-    passport.authenticate("local", function(err, user, info) {
-      if (err) {
-        return next(err); // Error 500
-      }
+  // Updates User Info
+  app.put("/api/currentUser", (req, res) => {
+    User.findById(req.user._id, (err, user) => {
+      if(err) {
+        res.status(500).send(err);
+      } else {
+        user.googleId = req.body.googleId;
+        user.theme = req.body.theme || user.theme;
 
-      if (!user) {
-        //Authentication failed
-        return res.json(401, { error: info.message });
+        user.save((err, user) => {
+          if(err) {
+            res.status(500).send(err);
+          }
+          res.status(200).send(user);
+        });
       }
-      //Authentication successful
-      req.logIn(user, function(err) {
-        if (err) {
-          return next(err);
-        }
-        return res.send(user);
-      });
-    })(req, res, next); 
+    })
   });
+
+
+  // // Test User Login for demonstration purposes
+  // app.post("/api/testUser", function(req, res, next) {
+  //   passport.authenticate("local", function(err, user, info) {
+  //     if (err) {
+  //       return next(err); // Error 500
+  //     }
+
+  //     if (!user) {
+  //       //Authentication failed
+  //       return res.json(401, { error: info.message });
+  //     }
+  //     //Authentication successful
+  //     req.logIn(user, function(err) {
+  //       if (err) {
+  //         return next(err);
+  //       }
+  //       return res.send(user);
+  //     });
+  //   })(req, res, next); 
+  // });
 };

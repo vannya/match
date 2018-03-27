@@ -13,15 +13,9 @@ const MobileHeader = ({
   switch (oauth) {
     case null:
       // If oauth has not returned yet
-      return <div className="header">"Loading"</div>;
-    case false:
-      // If user is not logged in
       return (
         <div className="header">
           <div className="mobile-header">
-            <div className="mobile-header-row">
-              <img src={logo} alt="Logo" />
-            </div>
             <div className="mobile-header-row">
               <LinkButton link="/api/googleLogin">
                 <Button type="button" className="meme-btn" text="SignUp" />
@@ -30,19 +24,27 @@ const MobileHeader = ({
                 <Button type="button" className="meme-btn" text="Login" />
               </LinkButton>
             </div>
+          </div>
+        </div>
+      );
+    case false:
+      // If user is not logged in
+      return (
+        <div className="header">
+          <div className="mobile-header">
             <div className="mobile-header-row">
-              <Button
-                type="button"
-                className="meme-btn"
-                onClick={loginTestUser}
-                text="TestUser"
-              />
+              <LinkButton link="/api/googleLogin">
+                <Button type="button" className="meme-btn" text="SignUp" />
+              </LinkButton>
+              <LinkButton link="/api/googleLogin">
+                <Button type="button" className="meme-btn" text="Login" />
+              </LinkButton>
             </div>
           </div>
         </div>
       );
     default:
-      // If user is not logged in
+      // If user is logged in
       return (
         <div className="header">
           <div className="mobile-header">

@@ -16,6 +16,12 @@
       display: none;
     }
 
+    p {
+      @include themify($themes) {
+        color: themed("landingText");
+      }
+    }
+
     .header-left {
       display: flex;
       flex-direction: row;

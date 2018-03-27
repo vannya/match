@@ -8,7 +8,17 @@ const Header = ({oauth, loadDemoMemes, openAddModal, loginTestUser}) => {
   switch (oauth) {
     case null:
       // If oauth has not returned yet
-      return <div className="header">"Loading"</div>;
+      return (
+        <div className="header">
+          <div className="desktop-header">
+            <div className="header-left"><img src={logo} alt="Logo" /></div>
+            <div className="header-right">
+              <LinkButton link="/api/googleLogin"><Button type="button" className="meme-btn" text="SignUp" /></LinkButton>
+              <LinkButton link="/api/googleLogin"><Button type="button" className="meme-btn" text="Login" /></LinkButton>
+            </div>
+          </div>
+        </div>
+      );
     case false:
       // If user is not logged in
       return (

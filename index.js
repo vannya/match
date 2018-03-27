@@ -6,7 +6,7 @@ const bodyParser = require("body-parser");
 const keys = require("./keys/keys.js");
 require("./models/User");
 require("./models/Meme");
-require("./passport/local");
+// require("./passport/local");
 require("./passport/google");
 
 mongoose.connect(keys.mongoURI);

@@ -466,6 +466,10 @@ button {
   @media (max-width: 767px) {
     .header .desktop-header {
       display: none; } }
+  .theme-main .header .desktop-header p {
+    color: #FFFFFF; }
+  .theme-dark .header .desktop-header p {
+    color: #FFFFFF; }
   .header .desktop-header .header-left {
     display: flex;
     flex-direction: row;

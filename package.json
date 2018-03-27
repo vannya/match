@@ -1,7 +1,7 @@
 {
-  "name": "match",
+  "name": "modmemes",
   "version": "1.0.1",
-  "description": "Match's Component Challenge",
+  "description": "modmemes - meme library",
   "main": "index.js",
   "engines": {
     "node": "8.9.3",

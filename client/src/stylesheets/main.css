@@ -704,10 +704,14 @@ button {
     color: #FFFFFF; }
   .theme-dark .landing {
     color: #FFFFFF; }
-  .landing img {
+  .landing .large-logo {
     width: 80%;
     max-width: 538px;
     height: auto; }
+  .landing .example-image {
+    width: 80%;
+    max-width: 700px;
+    margin: 25px; }
 
 .filter-selectors {
   display: flex;

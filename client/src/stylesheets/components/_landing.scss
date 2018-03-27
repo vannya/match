@@ -10,9 +10,15 @@
     color: themed("landingText");
   }
   
-  img {
+  .large-logo {
     width: 80%;
     max-width: 538px;
     height: auto;
+  }
+
+  .example-image {
+    width: 80%;
+    max-width: 700px;
+    margin: 25px;
   }
 }

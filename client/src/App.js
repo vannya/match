@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import * as actions from "./actions";
 import logo from "./stylesheets/assets/logo.png";
+import example from "./stylesheets/assets/example.jpg";
 
 import HeaderContainer from "./components/Header/HeaderContainer";
 import AddEditModalContainer from "./components/AddEditModal/AddEditModalContainer";
@@ -46,7 +47,7 @@ class App extends Component {
               memes={this.props.memes}
             />
           ) : (
-            <Landing logo={logo} />
+            <Landing logo={logo} example={example} />
           )}
         </div>
         {!!this.state.modalShowing ? (

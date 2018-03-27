@@ -27,3 +27,13 @@
     color: themed("textLight");
   }
 }
+
+.closeBtn {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: transparent;
+  font-size: 24px;
+  color: white;
+  z-index: z("closeBtn");
+}

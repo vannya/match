@@ -2,40 +2,53 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import Header from "./Header";
 import MobileHeader from "./MobileHeader";
+import SlideMenu from "./SlideMenu";
 import * as actions from "../../actions";
-import demo from "../../demo-data.json";
-
 
 class HeaderContainer extends Component {
-  state = {};
+  state = {
+    isSlideVisible: false,
+    currentSlide: 1
+  };
 
   componentDidMount(){
     this.props.fetchUser();
   }
 
-  // Add Demo Memes 
-  loadDemoMemes = () => {
-    demo.map(meme => {
-      return this.props.addMeme({
-        link: meme.link,
-        tags: meme.tags
-      });
-    });
-    this.props.fetchMemes();
-    this.props.fetchTags();
+  openSlideMenu(){
+    this.setState({
+      isSlideVisible: true,
+      currentSlide: 1
+    })
   }
 
-  // Logs in the Test User and fetches their memes
-  async loginTestUser() {
-    await this.props.loginDemo();
+  async closeSlideMenu(){
+    await this.setState({
+      isSlideVisible: false,
+      currentSlide: 1
+    });
     await this.props.fetchMemes();
+  }
+
+  changeSlideMenu(menu){
+    this.setState({
+      currentSlide: menu
+    })
   }
 
   render() {
     return (
       <React.Fragment>
-        <Header oauth={this.props.oauth} loadDemoMemes={this.loadDemoMemes} loginTestUser={() => this.loginTestUser()} openAddModal={this.props.openAddModal} closeAddModal={this.props.closeAddModal} />
-        <MobileHeader oauth={this.props.oauth} loadDemoMemes={this.loadDemoMemes} loginTestUser={() => this.loginTestUser()} openAddModal={this.props.openAddModal} closeAddModal={this.props.closeAddModal} />
+        <Header oauth={this.props.oauth} openAddModal={this.props.openAddModal} closeAddModal={this.props.closeAddModal} openSlideMenu={() => this.openSlideMenu()}/>
+        <MobileHeader oauth={this.props.oauth} openAddModal={this.props.openAddModal} closeAddModal={this.props.closeAddModal} openSlideMenu={() => this.openSlideMenu()}/>
+        <SlideMenu 
+          profile={this.props.oauth}
+          updateUser={this.props.updateUser}
+          isSlideVisible={this.state.isSlideVisible} 
+          currentSlide={this.state.currentSlide} 
+          openSlideMenu={() => this.openSlideMenu()} 
+          closeSlideMenu={() => this.closeSlideMenu()} 
+          openMenu2={() => this.changeSlideMenu(2)} />
       </React.Fragment>
     );
   }

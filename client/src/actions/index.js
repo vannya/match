@@ -10,6 +10,7 @@ export const fetchUser = () => async dispatch => {
 
 // Update User
 export const updateUser = (updatedUser) => async dispatch => {
+  console.log(updatedUser)
   const res = await axios.put("/api/currentUser", updatedUser);
 
   dispatch({ type: UPDATE_USER, payload: res.data })

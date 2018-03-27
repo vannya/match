@@ -4,7 +4,7 @@ import Button from "../common/Button";
 import LinkButton from "../common/LinkButton";
 import FilterBar from "./FilterBar";
 
-const Header = ({oauth, loadDemoMemes, openAddModal, loginTestUser}) => {
+const Header = ({oauth, openAddModal, openSlideMenu}) => {
   switch (oauth) {
     case null:
       // If oauth has not returned yet
@@ -33,7 +33,7 @@ const Header = ({oauth, loadDemoMemes, openAddModal, loginTestUser}) => {
         </div>
       );
     default:
-      // If user is not logged in
+      // If user is logged in
       return (
         <div className="header">
           <div className="desktop-header">
@@ -43,7 +43,7 @@ const Header = ({oauth, loadDemoMemes, openAddModal, loginTestUser}) => {
               <div className="header-right">   
                 <FilterBar />
                 <Button type="button" className="meme-btn" onClick={openAddModal} text="Add Memes!" />
-                <LinkButton link="/api/logout"><Button type="button" className="meme-btn" text="Logout" /></LinkButton>
+                <Button type="button" className="meme-btn" onClick={openSlideMenu} text="Settings" />
             </div>
           </div>
         </div>

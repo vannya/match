@@ -30,23 +30,10 @@ class App extends Component {
     });
   }
 
-  // Changes the current theme
-  updateTheme(theme){
-    const user = this.props.oauth;
-    user.theme = theme;
-    this.props.updateUser(user);
-    this.setState({
-      theme: theme
-    })
-  }
-
   // Renders the App
   render() {
-    if(!this.props.oauth){
-      return null;
-    }
     return (
-      <div className={`theme-${this.props.oauth.theme}`}>
+      <div className={`theme-${!!this.props.oauth ? this.props.oauth.theme : "main"}`}>
       <div className="App">
         <HeaderContainer
           openAddModal={() => this.toggleModal("add", null)}

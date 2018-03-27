@@ -1,0 +1,35 @@
+.slide-menu-wrapper {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+
+  .slide-overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: rgba(121, 121, 121, 0.6);
+    height: 100%;
+    width: 100%;
+    z-index: z("dropdown");
+  }
+  .slide-menu {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 300px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-left: 50px;
+    color: white;
+    background-color: black;
+    border: 1px solid white;
+    z-index: z("modal");
+    text-align: left;
+  }
+}
+
+
+.slide-menu-hidden {
+  display: none;
+}

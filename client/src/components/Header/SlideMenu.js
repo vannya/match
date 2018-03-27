@@ -17,9 +17,9 @@ const SlideMenu = ({profile, updateUser, isSlideVisible, currentSlide, closeSlid
         <div className={isSlideVisible ? "slide-menu-wrapper" : "slide-menu-hidden"}>
           <div className="slide-overlay" onClick={closeSlideMenu} />
           <div className="slide-menu">
-            <h2>Change Theme Colors</h2>
-            <div onClick={() => updateTheme("main")}><h3>Summer</h3></div>
-            <div onClick={() => updateTheme("dark")}><h3>Dark</h3></div>
+            <h2>Change Theme</h2>
+            <div className="slide-btn" onClick={() => updateTheme("main")}><h3>Summer</h3></div>
+            <div className="slide-btn" onClick={() => updateTheme("dark")}><h3>Dark</h3></div>
           </div>
           <Button type="button" className="closeBtn" text="Back" onClick={openSlideMenu} />
         </div>
@@ -30,7 +30,7 @@ const SlideMenu = ({profile, updateUser, isSlideVisible, currentSlide, closeSlid
           <div className="slide-overlay" onClick={closeSlideMenu} />
           <div className="slide-menu">
             <h2>Settings</h2>
-            <div onClick={openMenu2}><h3>Change Theme</h3></div>
+            <div className="slide-btn" onClick={openMenu2}><h3>Change Theme</h3></div>
             <a href="/api/logout"><h3>Log Out</h3></a>
           </div>
           <Button type="button" className="closeBtn" text="x" onClick={closeSlideMenu} />

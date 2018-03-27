@@ -33,7 +33,11 @@
   right: 0;
   top: 0;
   background: transparent;
-  font-size: 24px;
+  font-size: 20px;
   color: white;
   z-index: z("closeBtn");
+}
+
+.slide-btn {
+  cursor: pointer;
 }

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { FETCH_USER, FETCH_MEMES, FETCH_TAGS } from "./types";
+import { FETCH_USER, FETCH_MEMES, FETCH_TAGS, SET_CURRENT_MEME, UPDATE_USER } from "./types";
 
 // Fetches Current User
 export const fetchUser = () => async dispatch => {
@@ -8,17 +8,13 @@ export const fetchUser = () => async dispatch => {
   dispatch({ type: FETCH_USER, payload: res.data });
 };
 
-// Logs in a demo User
-export const loginDemo = () => async dispatch => {
-  const user = {
-    username: "testUser",
-    password: "xxxx"
-  };
+// Update User
+export const updateUser = (updatedUser) => async dispatch => {
+  console.log(updatedUser)
+  const res = await axios.put("/api/currentUser", updatedUser);
 
-  const res = await axios.post("/api/testUser", user);
-
-  dispatch({ type: FETCH_USER, payload: res.data });
-};
+  dispatch({ type: UPDATE_USER, payload: res.data })
+}
 
 // Adds Meme
 export const addMeme = newMeme => async dispatch => {
@@ -54,3 +50,23 @@ export const searchTag = (tag) => async dispatch => {
 
   dispatch({ type: FETCH_MEMES, payload: res.data});
 }
+
+// Sets the current meme
+export const setCurrentMeme = (meme) => async dispatch => {
+
+  dispatch({type: SET_CURRENT_MEME, payload: meme});
+}
+
+
+// // Logs in a demo User
+// // Retaining this code for future use.
+// export const loginDemo = () => async dispatch => {
+//   const user = {
+//     username: "testUser",
+//     password: "xxxx"
+//   };
+
+//   const res = await axios.post("/api/testUser", user);
+
+//   dispatch({ type: FETCH_USER, payload: res.data });
+// };

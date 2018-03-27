@@ -44,3 +44,7 @@ $base-url: './assets/';
 @function color-list($key: 'primary') {
   @return map-get($color-list, $key);
 }
+
+@function themed($key) {
+  @return map-get($theme-map, $key);
+}

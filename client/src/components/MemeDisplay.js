@@ -2,7 +2,8 @@ import React from "react";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 
 // Displays a single meme, its tags and buttons to delete or copy link to clipboard.
-const MemeDisplay = ({ imgSrc, link, linkId, deleteImage, tags }) => {
+const MemeDisplay = ({ imgSrc, link, linkId, deleteImage, tags, toggleModal }) => {
+
   return (
     <div className="meme-display">
       <a href={link}>
@@ -21,10 +22,10 @@ const MemeDisplay = ({ imgSrc, link, linkId, deleteImage, tags }) => {
       </div>
       <div className="btn-box">
         <button
-          className="meme-display-btn red-btn"
-          onClick={() => deleteImage(linkId)}
+          className="meme-display-btn"
+          onClick={toggleModal}
         >
-          Delete
+          Edit
         </button>
         <CopyToClipboard text={link}>
           <button className="meme-display-btn">Copy</button>

@@ -19,10 +19,12 @@ module.exports = app => {
       return res.status(401).send({ error: "Login required" });
     }
 
+    let tags = req.body.tags.filter(tag => tag !== "");
+
     const meme = {
       link: req.body.link,
       _user: req.user.id,
-      tags: req.body.tags
+      tags: tags
     };
 
     await Meme.findOneAndUpdate(
@@ -47,7 +49,7 @@ module.exports = app => {
     return res.send(req.user);
   });
 
-  // Fetches all distinct tags
+  // Fetches all distinct tags for a user's memes
   app.get("/api/tags", async (req, res) => {
     if (!req.user) {
       return res.status(401).send({ error: "Login required" });
@@ -64,7 +66,7 @@ module.exports = app => {
     return res.send(tags);
   });
 
-  // Searches based on tag choice
+  // Searches a user's memes based on tag choice
   app.get("/api/tags/:tag", async (req, res) => {
     if (!req.user) {
       return res.status(401).send({ error: "Login required" });

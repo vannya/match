@@ -35,8 +35,6 @@ const SlideMenu = ({profile, updateUser, isSlideVisible, currentSlide, closeSlid
             <div className="signature">
               <div>modmemes created by</div>
               <a href="https://vannya.me">Van Tabbert</a>
-              <div>Get the code at</div>
-              <a href="https://github.com/vannya/modmemes">Github Repo</a>
             </div>
           </div>
           <Button type="button" className="closeBtn" text="x" onClick={closeSlideMenu} />

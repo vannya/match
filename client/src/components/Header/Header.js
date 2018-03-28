@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from "react-router-dom";
 import logo from "../../stylesheets/assets/logo-xs.png";
 import Button from "../common/Button";
 import LinkButton from "../common/LinkButton";
@@ -11,9 +12,9 @@ const Header = ({oauth, openAddModal, openSlideMenu}) => {
       return (
         <div className="header">
           <div className="desktop-header">
-            <div className="header-left"><img src={logo} alt="Logo" /></div>
+            <div className="header-left"><Link to="/"><img src={logo} alt="Logo" /></Link></div>
             <div className="header-right">
-              <LinkButton link="/api/googleLogin"><Button type="button" className="meme-btn" text="SignUp" /></LinkButton>
+              <LinkButton link="/signup"><Button type="button" className="meme-btn" text="SignUp" /></LinkButton>
               <LinkButton link="/api/googleLogin"><Button type="button" className="meme-btn" text="Login" /></LinkButton>
             </div>
           </div>
@@ -24,9 +25,9 @@ const Header = ({oauth, openAddModal, openSlideMenu}) => {
       return (
         <div className="header">
           <div className="desktop-header">
-            <div className="header-left"><img src={logo} alt="Logo" /></div>
+            <div className="header-left"><Link to="/"><img src={logo} alt="Logo" /></Link></div>
             <div className="header-right">
-              <LinkButton link="/api/googleLogin"><Button type="button" className="meme-btn" text="SignUp" /></LinkButton>
+              <LinkButton link="/signup"><Button type="button" className="meme-btn" text="SignUp" /></LinkButton>
               <LinkButton link="/api/googleLogin"><Button type="button" className="meme-btn" text="Login" /></LinkButton>
             </div>
           </div>
@@ -38,7 +39,7 @@ const Header = ({oauth, openAddModal, openSlideMenu}) => {
         <div className="header">
           <div className="desktop-header">
             <div className="header-left">
-              <img src={logo} alt="Logo" />
+              <Link to="/memeboard"><img src={logo} alt="Logo" /></Link>
             </div>
               <div className="header-right">   
                 <FilterBar />

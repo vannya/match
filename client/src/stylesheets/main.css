@@ -696,6 +696,21 @@ button {
     background-color: #2d5c76;
     color: #ffffff; }
 
+/* Creates a large Signup Button with Text */
+.large-btn {
+  display: block;
+  margin: 40px 0;
+  padding: 20px 20px;
+  font-weight: 700;
+  font-size: 30px;
+  text-decoration: none; }
+  .theme-main .large-btn {
+    background-color: #FF715B;
+    color: #ffffff; }
+  .theme-dark .large-btn {
+    background-color: #2d5c76;
+    color: #ffffff; }
+
 .closeBtn {
   position: absolute;
   right: 0;
@@ -707,26 +722,6 @@ button {
 
 .slide-btn {
   cursor: pointer; }
-
-.landing {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center; }
-  .theme-main .landing {
-    color: #FFFFFF; }
-  .theme-dark .landing {
-    color: #FFFFFF; }
-  .landing .large-logo {
-    width: 80%;
-    max-width: 538px;
-    height: auto; }
-  .landing .example-image {
-    width: 80%;
-    max-width: 700px;
-    margin: 25px; }
 
 .filter-selectors {
   display: flex;
@@ -751,6 +746,26 @@ button {
         font-size: 16px; } }
     .filter-selectors select option {
       padding: 0.2em 0.4em; }
+
+.landing {
+  width: 100%;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center; }
+  .theme-main .landing {
+    color: #FFFFFF; }
+  .theme-dark .landing {
+    color: #FFFFFF; }
+  .landing .large-logo {
+    width: 80%;
+    max-width: 538px;
+    height: auto; }
+  .landing .example-image {
+    width: 80%;
+    max-width: 700px;
+    margin: 25px; }
 
 .meme-display {
   position: relative;
@@ -815,3 +830,29 @@ button {
       .theme-dark .meme-display .tag-boxes .tag-item {
         background-color: #921611;
         color: #FFFFFF; }
+
+.signup {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center; }
+  .theme-main .signup {
+    color: #FFFFFF; }
+  .theme-dark .signup {
+    color: #FFFFFF; }
+  .signup h2 {
+    margin-top: 0;
+    font-size: 2.5rem; }
+  .signup section {
+    padding: 40px 40px 40px 40px;
+    margin-top: 40px; }
+    .theme-main .signup section {
+      background-color: #44BBA4; }
+    .theme-dark .signup section {
+      background-color: #232629; }
+  .signup h3, .signup p {
+    text-align: left; }

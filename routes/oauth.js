@@ -17,7 +17,7 @@ module.exports = app => {
     "/api/googlelogin/redirect",
     passport.authenticate("google"),
     (req, res) => {
-      res.redirect("/");
+      res.redirect("/memeboard");
     }
   );
 

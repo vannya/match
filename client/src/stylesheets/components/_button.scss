@@ -28,6 +28,21 @@
   }
 }
 
+/* Creates a large Signup Button with Text */
+.large-btn {
+  display: block;
+  margin: 40px 0;
+  padding: 20px 20px;
+  font-weight: 700;
+  font-size: 30px;
+  text-decoration: none;
+
+  @include themify($themes) {
+    background-color: themed("headerButton");
+    color: themed("textLight");
+  }
+}
+
 .closeBtn {
   position: absolute;
   right: 0;

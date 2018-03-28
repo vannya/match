@@ -1,0 +1,32 @@
+.signup {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  @include themify($themes) {
+    color: themed("landingText");
+  }
+
+  h2 {
+    margin-top: 0;
+    font-size: 2.5rem;
+  }  
+
+  section { 
+    padding: 40px 40px 40px 40px;
+    margin-top: 40px;
+
+    @include themify($themes) {
+      background-color: themed("slideMenuBackground");
+    }
+  }
+
+  h3, p {
+    text-align: left;
+  }
+}

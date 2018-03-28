@@ -10,7 +10,6 @@ const Landing = ({logo, example}) => {
         fingertips.
       </p>
       <img className="example-image" src={example} alt="example" />
-
     </div>
   );
 };

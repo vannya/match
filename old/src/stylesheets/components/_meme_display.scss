@@ -1,0 +1,71 @@
+.meme-display {
+  position: relative;
+  width: 220px;
+  padding: 12px;
+  margin: 12px;
+  max-height: 500px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid color-list("borders");
+  border-radius: 4px;
+
+  @include themify($themes) {
+    background-color: themed("memeDisplayBackground");
+    color: themed("memeDisplayText");
+    border: 1px solid themed("borders");
+  }
+  
+  a {
+    img {
+      height: 194px;
+      width: 194px;
+      object-fit: contain;
+    }
+  }
+  
+  input {
+    line-height: 20px;
+    font-size: 16px;
+    @include themify($themes) {
+      background: themed("inputBackground");
+      border: 1px solid themed("inputBorder");
+      color: themed("inputText");
+    }
+  }
+  
+  .btn-box {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-top: 8px;    
+  }
+  
+  .tag-boxes {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+    justify-content: center;
+    overflow: auto;
+    max-height: 125px;
+    
+    .tag-item {
+      margin-right: 0.4em;
+      margin-bottom: 0.4em;
+      padding: 0.25em 0.5em;
+      border-radius: 4px;
+      background-color: color-list("tags");
+      color: color-list("text-light");
+
+      @include themify($themes) {
+        background-color: themed("tagBackground");
+        color: themed("tagText");
+        
+      }
+    }
+  }
+}

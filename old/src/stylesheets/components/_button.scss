@@ -1,0 +1,58 @@
+/* Creates a Delete Btn with White Text */
+.red-btn {  
+  @include themify($themes) {
+    background-color: themed("deleteButton");
+    color: themed("textLight");
+  }
+}
+
+/* Creates a larger Header Button with Text */
+.meme-btn {
+  margin: 10px 12px;
+  font-weight: 700;
+  font-size: 16px;
+  width: 125px;
+
+  @include themify($themes) {
+    background-color: themed("headerButton");
+    color: themed("textLight");
+  }
+}
+
+/* Creates a Primary Btn with White Text */
+.meme-display-btn {
+  width: 80px;
+  @include themify($themes) {
+    background-color: themed("buttonColor");
+    color: themed("textLight");
+  }
+}
+
+/* Creates a large Signup Button with Text */
+.large-btn {
+  display: block;
+  margin: 40px 0;
+  padding: 20px 20px;
+  font-weight: 700;
+  font-size: 30px;
+  text-decoration: none;
+
+  @include themify($themes) {
+    background-color: themed("headerButton");
+    color: themed("textLight");
+  }
+}
+
+.closeBtn {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: transparent;
+  font-size: 20px;
+  color: white;
+  z-index: z("closeBtn");
+}
+
+.slide-btn {
+  cursor: pointer;
+}

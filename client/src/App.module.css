@@ -1,0 +1,18 @@
+.app {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+
+  background: #3f88c5;
+  background: -webkit-linear-gradient(to right, #3f88c5, #44bba4);
+  background: linear-gradient(to right, #3f88c5, #44bba4);
+}
+
+.appBody {
+  min-height: 92%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}

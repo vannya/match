@@ -1,0 +1,58 @@
+.memeDisplay {
+  position: relative;
+  width: 220px;
+  padding: 12px;
+  margin: 12px;
+  max-height: 500px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  background-color: #f0f0f0;
+  color: #333;
+  border: 1px solid #bbb;
+}
+
+.memeDisplay > a > img {
+  height: 194px;
+  width: 194px;
+  object-fit: contain;
+}
+
+.memeDisplay > input {
+  line-height: 20px;
+  font-size: 16px;
+  background: #f0f0f0;
+  border: 1px solid #bbbbbb;
+  color: #333;
+}
+
+.btnBox {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding-top: 8px;
+}
+.tagBoxes {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-bottom: 50px;
+  justify-content: center;
+  overflow: auto;
+  max-height: 125px;
+}
+.tagItem {
+  margin-right: 0.4em;
+  margin-bottom: 0.4em;
+  padding: 0.25em 0.5em;
+  border-radius: 4px;
+  background-color: #119da4;
+  color: #fff;
+  background-color: #119da4;
+  color: #fff;
+}

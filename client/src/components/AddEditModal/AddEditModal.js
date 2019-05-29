@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Button from '../common/Button';
 import styles from './AddEditModal.module.css';
 
-const AddEditModalContainer = ({
+const AddEditModal = ({
   meme,
   modalType,
   toggleModal,
@@ -107,4 +107,4 @@ const AddEditModalContainer = ({
   );
 };
 
-export default AddEditModalContainer;
+export default AddEditModal;

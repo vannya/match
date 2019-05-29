@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Route, withRouter } from 'react-router-dom';
 import * as actions from './actions';
@@ -14,32 +14,20 @@ import SignUp from './components/SignUp/SignUp';
 import styles from './App.module.css';
 
 const App = props => {
-  const [modalShowing, setModalShowing] = useState(false);
-  const [modalType, setModalType] = useState('add');
-  const [memeToEdit, setMemeToEdit] = useState('');
-  const [theme, setTheme] = useState('main');
+  const { fetchUser } = props;
 
   useEffect(() => {
-    return () => {
-      props.fetchUser();
-    };
-  }, [props]);
-
-  // Toggles the AddEditModal
-  const toggleModal = (type, meme) => {
-    setModalShowing(!modalShowing);
-    setModalType(type);
-    setMemeToEdit(meme || null);
-  };
+    fetchUser();
+  }, [fetchUser]);
 
   return (
-    <section className={`theme-${!!props.auth ? props.auth.theme : 'main'}`}>
+    <>
       <div className={styles.app}>
         <HeaderContainer
           auth={props.auth}
           fetchMemes={props.fetchMemes}
-          openAddModal={() => toggleModal('add', null)}
-          closeAddModal={() => toggleModal(null, null)}
+          openAddModal={() => props.toggleModal('add', null)}
+          closeAddModal={() => props.toggleModal(null, null)}
         />
         <div className={styles.appBody}>
           <Route
@@ -52,18 +40,18 @@ const App = props => {
             path="/memeboard"
             render={() => (
               <MemeBoard
-                toggleModal={() => toggleModal('edit', props.page.currentMeme)}
+                toggleEditModal={props.toggleModal}
                 memes={props.memes}
               />
             )}
           />
           <Route exact path="/signup" render={() => <SignUp logo={logo} />} />
         </div>
-        {!!modalShowing ? (
+        {!!props.page.modalShowing ? (
           <AddEditModal
-            meme={memeToEdit}
-            modalType={modalType}
-            toggleModal={() => toggleModal(null, null)}
+            meme={props.page.memeToEdit}
+            modalType={props.page.modalType}
+            toggleModal={() => props.toggleModal(null, null)}
             addMeme={props.addMeme}
             deleteMeme={props.deleteMeme}
             fetchTags={props.fetchTags}
@@ -72,12 +60,12 @@ const App = props => {
         ) : null}
       </div>
       {/* <SEO url="default" /> */}
-    </section>
+    </>
   );
 };
 
-function mapStateToProps({ auth, memes, tags, currentMeme, page }) {
-  return { auth, memes, tags, currentMeme, page };
+function mapStateToProps({ auth, memes, tags, page }) {
+  return { auth, memes, tags, page };
 }
 
 export default withRouter(

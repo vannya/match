@@ -4,7 +4,6 @@ import MobileHeader from './MobileHeader';
 import SlideMenu from './SlideMenu';
 
 const HeaderContainer = props => {
-  console.log(props);
   const [isSlideVisible, setIsSlideVisible] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(1);
 

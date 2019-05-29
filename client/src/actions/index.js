@@ -4,8 +4,19 @@ import {
   FETCH_MEMES,
   FETCH_TAGS,
   SET_CURRENT_MEME,
-  UPDATE_USER
+  UPDATE_USER,
+  TOGGLE_MODAL
 } from './types';
+
+/********************************* Page actions ******************************/
+
+// Toggles the add/edit modal
+export const toggleModal = (type, meme) => dispatch => {
+  dispatch({
+    type: TOGGLE_MODAL,
+    payload: { type, meme }
+  });
+};
 
 // Fetches Current User
 export const fetchUser = () => async dispatch => {

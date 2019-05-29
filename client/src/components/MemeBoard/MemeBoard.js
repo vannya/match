@@ -23,12 +23,6 @@ const MemeBoard = props => {
     }
   };
 
-  // Sets the current Meme and opens the edit modal
-  const toggleEditModal = async meme => {
-    await props.setCurrentMeme(meme);
-    await props.toggleModal();
-  };
-
   const renderMemes = memes => {
     if (!!memes) {
       return memes.map((meme, i) => {
@@ -39,7 +33,7 @@ const MemeBoard = props => {
             link={meme.link}
             linkId={meme._id}
             tags={meme.tags}
-            toggleModal={() => toggleEditModal(meme)}
+            toggleModal={() => props.toggleEditModal('edit', meme)}
           />
         );
       });

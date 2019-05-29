@@ -1,12 +1,12 @@
-import { combineReducers } from "redux";
-import oauthReducer from "./oauthReducer";
-import memeReducer from "./memeReducer";
-import tagsReducer from "./tagsReducer";
-import currentMemeReducer from "./currentMemeReducer";
+import { combineReducers } from 'redux';
+import authReducer from './auth';
+import memeReducer from './memes';
+import tagsReducer from './tags';
+import pageReducer from './page';
 
 export default combineReducers({
-  oauth: oauthReducer,
+  auth: authReducer,
   memes: memeReducer,
-  tags: tagsReducer,
-  currentMeme: currentMemeReducer
+  page: pageReducer,
+  tags: tagsReducer
 });

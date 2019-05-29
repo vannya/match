@@ -1,61 +1,50 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import Header from "./Header";
-import MobileHeader from "./MobileHeader";
-import SlideMenu from "./SlideMenu";
-import * as actions from "../../actions";
+import React, { useState, useEffect } from 'react';
+import Header from './Header';
+import MobileHeader from './MobileHeader';
+import SlideMenu from './SlideMenu';
 
-class HeaderContainer extends Component {
-  state = {
-    isSlideVisible: false,
-    currentSlide: 1
+const HeaderContainer = props => {
+  const [isSlideVisible, setIsSlideVisible] = useState(false);
+  const [currentSlide, setCurrentSlide] = useState(1);
+
+  useEffect(() => {}, []);
+
+  const openSlideMenu = () => {
+    setIsSlideVisible(true);
+    setCurrentSlide(1);
   };
 
-  componentDidMount(){
-    this.props.fetchUser();
-  }
+  const closeSlideMenu = async () => {
+    await setIsSlideVisible(false);
+    await setCurrentSlide(1);
+    await props.fetchMemes();
+  };
 
-  openSlideMenu(){
-    this.setState({
-      isSlideVisible: true,
-      currentSlide: 1
-    })
-  }
+  return (
+    <>
+      <Header
+        oauth={props.auth}
+        openAddModal={props.openAddModal}
+        closeAddModal={props.closeAddModal}
+        openSlideMenu={() => openSlideMenu()}
+      />
+      <MobileHeader
+        oauth={props.auth}
+        openAddModal={props.openAddModal}
+        closeAddModal={props.closeAddModal}
+        openSlideMenu={() => openSlideMenu()}
+      />
+      <SlideMenu
+        profile={props.auth}
+        updateUser={props.updateUser}
+        isSlideVisible={isSlideVisible}
+        currentSlide={currentSlide}
+        openSlideMenu={() => openSlideMenu()}
+        closeSlideMenu={() => closeSlideMenu()}
+        openMenu2={() => setCurrentSlide(2)}
+      />
+    </>
+  );
+};
 
-  async closeSlideMenu(){
-    await this.setState({
-      isSlideVisible: false,
-      currentSlide: 1
-    });
-    await this.props.fetchMemes();
-  }
-
-  changeSlideMenu(menu){
-    this.setState({
-      currentSlide: menu
-    })
-  }
-
-  render() {
-    return (
-      <React.Fragment>
-        <Header oauth={this.props.oauth} openAddModal={this.props.openAddModal} closeAddModal={this.props.closeAddModal} openSlideMenu={() => this.openSlideMenu()}/>
-        <MobileHeader oauth={this.props.oauth} openAddModal={this.props.openAddModal} closeAddModal={this.props.closeAddModal} openSlideMenu={() => this.openSlideMenu()}/>
-        <SlideMenu 
-          profile={this.props.oauth}
-          updateUser={this.props.updateUser}
-          isSlideVisible={this.state.isSlideVisible} 
-          currentSlide={this.state.currentSlide} 
-          openSlideMenu={() => this.openSlideMenu()} 
-          closeSlideMenu={() => this.closeSlideMenu()} 
-          openMenu2={() => this.changeSlideMenu(2)} />
-      </React.Fragment>
-    );
-  }
-}
-
-function mapStateToProps({ oauth }) {
-  return { oauth };
-}
-
-export default connect(mapStateToProps, actions)(HeaderContainer);
+export default HeaderContainer;

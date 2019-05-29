@@ -1,12 +1,12 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
-import * as actions from "../../actions";
-
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as actions from '../../actions';
+import styles from './FilterBar.module.css';
 
 class FilterBar extends Component {
   state = {
-    currentSearch: "all"
+    currentSearch: 'all'
   };
 
   // Upon mounting, fetch memes and tags.
@@ -31,9 +31,9 @@ class FilterBar extends Component {
     sortedTags.sort();
 
     return (
-      <div className="filter-selectors">
+      <div className={styles.filterSelectors}>
         <select onChange={e => this.handleOnChange(e)}>
-          <option value="all">ALL TAGS</option>
+          <option value="all">All Tags</option>
           {sortedTags.map((item, i) => {
             return (
               <option key={i} name={item} value={item}>
@@ -57,4 +57,7 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(FilterBar);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(FilterBar);

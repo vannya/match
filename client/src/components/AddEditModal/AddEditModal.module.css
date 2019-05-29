@@ -1,0 +1,93 @@
+.modalWrapper {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: rgba(121, 121, 121, 0.6);
+  height: 100%;
+  width: 100%;
+}
+
+.addImageModal {
+  position: relative;
+  margin: 0 auto;
+  padding: 1em 3em;
+  width: 400px;
+  border-radius: 4px;
+  animation: slideInTop 0.8s ease both;
+  background-color: #fff;
+  color: #333;
+}
+
+.addImageModal > h2 {
+  text-align: center;
+}
+.addImageModal > form {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.modalLinkDisplay {
+  width: 100%;
+  word-wrap: break-word;
+  font-style: italic;
+}
+
+.modalEditButtons {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.addImageModal > form > input {
+  margin-bottom: 12px;
+  width: 100%;
+}
+
+@media screen and (max-width: 900px) {
+  .addImageModal {
+    margin: 0 auto;
+    padding: 1em 2em;
+  }
+  .addImageModal > h2 {
+    width: 100%;
+    font-size: 1.2em;
+    text-align: center;
+  }
+  .addImageModal > form > input {
+    margin-bottom: 12px;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 565px) {
+  .addImageModal {
+    margin: 0 auto;
+    width: 100%;
+    padding: 1em 2em;
+  }
+  .addImageModal > form > input {
+    margin-bottom: 12px;
+    width: 100%;
+  }
+}
+
+@keyframes slideInTop {
+  0% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(120px);
+  }
+}

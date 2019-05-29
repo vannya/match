@@ -1,83 +1,76 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { Route, withRouter } from "react-router-dom";
-import * as actions from "./actions";
-import logo from "./stylesheets/assets/logo.png";
-import example from "./stylesheets/assets/example.jpg";
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import { Route, withRouter } from 'react-router-dom';
+import * as actions from './actions';
+import logo from './assets/logo.png';
+import example from './assets/example.jpg';
 
-import HeaderContainer from "./components/Header/HeaderContainer";
-import AddEditModalContainer from "./components/AddEditModal/AddEditModalContainer";
-import Landing from "./components/Landing/Landing";
-import MemeBoard from "./components/MemeBoard/MemeBoard";
-import SEO from "./components/Meta/SEO";
-import SignUp from "./components/SignUp/SignUp";
+import HeaderContainer from './components/Header/HeaderContainer';
+import AddEditModal from './components/AddEditModal/AddEditModal';
+import Landing from './components/Landing/Landing';
+import MemeBoard from './components/MemeBoard/MemeBoard';
+// import SEO from './components/Meta/SEO';
+import SignUp from './components/SignUp/SignUp';
+import styles from './App.module.css';
 
-class App extends Component {
-  state = {
-    modalShowing: false,
-    modalType: "add",
-    memeToEdit: "",
-    theme: "main"
-  };
+const App = props => {
+  const { fetchUser } = props;
 
-  // Fetches to determine auth status
-  componentDidMount() {
-    this.props.fetchUser();
-  }
+  useEffect(() => {
+    fetchUser();
+  }, [fetchUser]);
 
-  // Toggles the AddEditModal
-  toggleModal(type, meme) {
-    this.setState({
-      modalShowing: !this.state.modalShowing,
-      modalType: type,
-      memeToEdit: meme || null
-    });
-  }
-
-  // Renders the App
-  render() {
-    return (
-      <div
-        className={`theme-${
-          !!this.props.oauth ? this.props.oauth.theme : "main"
-        }`}
-      >
-        <div className="App">
-          <HeaderContainer
-            openAddModal={() => this.toggleModal("add", null)}
-            closeAddModal={() => this.toggleModal(null)}
+  return (
+    <>
+      <div className={styles.app}>
+        <HeaderContainer
+          auth={props.auth}
+          fetchMemes={props.fetchMemes}
+          openAddModal={() => props.toggleModal('add', null)}
+          closeAddModal={() => props.toggleModal(null, null)}
+        />
+        <div className={styles.appBody}>
+          <Route
+            exact
+            path="/"
+            render={() => <Landing logo={logo} example={example} />}
           />
-          <div className="app-body">
-            <Route exact path="/" render={() => <Landing logo={logo} example={example} />} />
-            <Route
-              exact path="/memeboard"
-              render={() => (
-                <MemeBoard
-                  toggleModal={() =>
-                    this.toggleModal("edit", this.props.currentMeme)
-                  }
-                  memes={this.props.memes}
-                />
-              )}
-            />
-            <Route exact path="/signup" render={() => <SignUp logo={logo} />} />
-          </div>
-          {!!this.state.modalShowing ? (
-            <AddEditModalContainer
-              meme={this.state.memeToEdit}
-              modalType={this.state.modalType}
-              toggleModal={() => this.toggleModal(null)}
-            />
-          ) : null}
+          <Route
+            exact
+            path="/memeboard"
+            render={() => (
+              <MemeBoard
+                toggleEditModal={props.toggleModal}
+                memes={props.memes}
+              />
+            )}
+          />
+          <Route exact path="/signup" render={() => <SignUp logo={logo} />} />
         </div>
-        <SEO url="default" />
+        {!!props.page.modalShowing ? (
+          <AddEditModal
+            meme={props.page.memeToEdit}
+            modalType={props.page.modalType}
+            toggleModal={() => props.toggleModal(null, null)}
+            addMeme={props.addMeme}
+            deleteMeme={props.deleteMeme}
+            fetchTags={props.fetchTags}
+            fetchMemes={props.fetchMemes}
+          />
+        ) : null}
       </div>
-    );
-  }
+      {/* <SEO url="default" /> */}
+    </>
+  );
+};
+
+function mapStateToProps({ auth, memes, tags, page }) {
+  return { auth, memes, tags, page };
 }
 
-function mapStateToProps({ oauth, memes, tags, currentMeme }) {
-  return { oauth, memes, tags, currentMeme };
-}
-
-export default withRouter(connect(mapStateToProps, actions)(App));
+export default withRouter(
+  connect(
+    mapStateToProps,
+    actions
+  )(App)
+);

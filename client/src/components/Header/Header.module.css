@@ -1,0 +1,49 @@
+.desktopHeader {
+  height: 8%;
+  min-height: 64px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 24px;
+}
+
+.desktopHeader > p {
+  color: #fff;
+}
+
+.headerLeft {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 30%;
+}
+.headerLeft > h3 {
+  padding-right: 24px;
+  color: #fff;
+}
+
+.headerRight {
+  width: 70%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+@media screen and (max-width: 1024px) {
+  .headerLeft > h3 {
+    margin-left: 12px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .desktopHeader {
+    height: 12%;
+    min-height: 140px;
+    display: none;
+  }
+  .headerLeft {
+    display: none;
+  }
+  .headerRight {
+    display: none;
+  }
+}

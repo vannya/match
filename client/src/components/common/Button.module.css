@@ -1,0 +1,53 @@
+/* Creates a Delete Btn with White Text */
+.redBtn {
+  background-color: #ff715b;
+  color: #fff;
+}
+
+/* Creates a larger Header Button with Text */
+.memeBtn {
+  margin: 8px;
+  font-weight: 700;
+  font-size: 16px;
+  background-color: #ff715b;
+  color: #fff;
+}
+
+/* Creates a Mobile Menu Button */
+.mobile {
+  background: none;
+  border: none;
+}
+
+/* Creates a Primary Btn with White Text */
+.memeDisplayBtn {
+  width: 80px;
+  background-color: #3f88c5;
+  color: #fff;
+}
+
+/* Creates a large Signup Button with Text */
+.largeBtn {
+  display: block;
+  margin: 40px 0;
+  padding: 20px 20px;
+  font-weight: 700;
+  font-size: 30px;
+  text-decoration: none;
+  background-color: #ff715b;
+  color: #fff;
+}
+
+.closeBtn {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: transparent;
+  font-size: 20px;
+  color: white;
+  z-index: 401;
+}
+
+.slideBtn {
+  cursor: pointer;
+}

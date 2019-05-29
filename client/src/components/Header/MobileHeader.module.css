@@ -1,0 +1,24 @@
+.mobileHeader {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .mobileHeader {
+    width: 100%;
+    padding: 8px 4px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background: #3f88c5;
+  }
+  .right {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  .mobileHeader svg {
+    fill: #fff;
+  }
+}

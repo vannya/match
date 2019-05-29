@@ -1,0 +1,22 @@
+.filterSelectors {
+  display: flex;
+  align-items: center;
+}
+.filterSelectors > select {
+  font-size: 20px;
+  background-color: #ffffff;
+  border: 1px solid #bbbbbb;
+  color: #333;
+  min-width: 200px;
+}
+
+@media screen and (max-width: 900px) {
+  .filterSelectors > select {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .filterSelectors > select {
+    width: 100%;
+  }
+}

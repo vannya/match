@@ -6,7 +6,7 @@ import logo from './assets/logo.png';
 import example from './assets/example.jpg';
 
 import HeaderContainer from './components/Header/HeaderContainer';
-import AddEditModalContainer from './components/AddEditModal/AddEditModalContainer';
+import AddEditModal from './components/AddEditModal/AddEditModal';
 import Landing from './components/Landing/Landing';
 import MemeBoard from './components/MemeBoard/MemeBoard';
 // import SEO from './components/Meta/SEO';
@@ -33,7 +33,7 @@ const App = props => {
   };
 
   return (
-    <div className={`theme-${!!props.auth ? props.auth.theme : 'main'}`}>
+    <section className={`theme-${!!props.auth ? props.auth.theme : 'main'}`}>
       <div className={styles.app}>
         <HeaderContainer
           auth={props.auth}
@@ -52,7 +52,7 @@ const App = props => {
             path="/memeboard"
             render={() => (
               <MemeBoard
-                toggleModal={() => toggleModal('edit', props.currentMeme)}
+                toggleModal={() => toggleModal('edit', props.page.currentMeme)}
                 memes={props.memes}
               />
             )}
@@ -60,20 +60,24 @@ const App = props => {
           <Route exact path="/signup" render={() => <SignUp logo={logo} />} />
         </div>
         {!!modalShowing ? (
-          <AddEditModalContainer
+          <AddEditModal
             meme={memeToEdit}
             modalType={modalType}
             toggleModal={() => toggleModal(null, null)}
+            addMeme={props.addMeme}
+            deleteMeme={props.deleteMeme}
+            fetchTags={props.fetchTags}
+            fetchMemes={props.fetchMemes}
           />
         ) : null}
       </div>
       {/* <SEO url="default" /> */}
-    </div>
+    </section>
   );
 };
 
-function mapStateToProps({ auth, memes, tags, currentMeme }) {
-  return { auth, memes, tags, currentMeme };
+function mapStateToProps({ auth, memes, tags, currentMeme, page }) {
+  return { auth, memes, tags, currentMeme, page };
 }
 
 export default withRouter(

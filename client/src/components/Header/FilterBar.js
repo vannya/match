@@ -33,7 +33,7 @@ class FilterBar extends Component {
     return (
       <div className={styles.filterSelectors}>
         <select onChange={e => this.handleOnChange(e)}>
-          <option value="all">ALL TAGS</option>
+          <option value="all">Filter Tags</option>
           {sortedTags.map((item, i) => {
             return (
               <option key={i} name={item} value={item}>

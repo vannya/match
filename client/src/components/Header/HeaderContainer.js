@@ -21,7 +21,7 @@ const HeaderContainer = props => {
   };
 
   return (
-    <React.Fragment>
+    <>
       <Header
         oauth={props.auth}
         openAddModal={props.openAddModal}
@@ -29,13 +29,13 @@ const HeaderContainer = props => {
         openSlideMenu={() => openSlideMenu()}
       />
       <MobileHeader
-        oauth={props.oauth}
+        oauth={props.auth}
         openAddModal={props.openAddModal}
         closeAddModal={props.closeAddModal}
         openSlideMenu={() => openSlideMenu()}
       />
       <SlideMenu
-        profile={props.oauth}
+        profile={props.auth}
         updateUser={props.updateUser}
         isSlideVisible={isSlideVisible}
         currentSlide={currentSlide}
@@ -43,7 +43,7 @@ const HeaderContainer = props => {
         closeSlideMenu={() => closeSlideMenu()}
         openMenu2={() => setCurrentSlide(2)}
       />
-    </React.Fragment>
+    </>
   );
 };
 

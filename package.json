@@ -10,10 +10,8 @@
   "scripts": {
     "start": "node index.js",
     "client": "npm run start --prefix client",
-    "client-dev": "npm run client-dev --prefix client",
     "server": "nodemon index.js",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "beastmode": "concurrently \"npm run server\" \"npm run client-dev\"",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "author": "Van Tabbert",

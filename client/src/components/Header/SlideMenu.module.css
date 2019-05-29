@@ -2,6 +2,7 @@
   height: 100%;
   width: 100%;
   position: absolute;
+  z-index: 1000;
 }
 
 .slideOverlay {
@@ -23,7 +24,6 @@
   display: flex;
   flex-direction: column;
   padding: 0 50px;
-  z-index: z('modal');
   text-align: left;
   color: #fff;
   background-color: #44bba4;

@@ -5,11 +5,11 @@ import styles from './MobileHeader.module.css';
 import { ReactComponent as Menu } from '../../assets/menu.svg';
 import { ReactComponent as Add } from '../../assets/add.svg';
 
-const MobileHeader = ({ oauth, openAddModal }) => {
+const MobileHeader = ({ oauth, openAddModal, openSlideMenu }) => {
   return (
     <section className={styles.mobileHeader}>
       <Button type="button" className="mobile">
-        <Menu />
+        <Menu onClick={openSlideMenu} />
       </Button>
       {!oauth ? (
         <div className={styles.right}>
